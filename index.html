@@ -3,7 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Portfólio de Business Intelligence | Luiz Gonzaga</title>
+  <title>Portfólio de Soluções | Luiz Gonzaga</title>
+  <meta name="description" content="Portfólio de soluções digitais em dados, automação, dashboards, mapas operacionais e aplicativo mobile para processos de campo." />
+  <meta property="og:title" content="Portfólio de Soluções | Luiz Gonzaga" />
+  <meta property="og:description" content="Soluções digitais em dados, automação, dashboards, mapas operacionais e aplicativo mobile." />
   <style>
     :root {
       --bg:#070b2e; --bg2:#0b1246; --sidebar:#15113c; --card:#171b54; --card2:#22145f;
@@ -228,10 +231,1630 @@
       -webkit-backdrop-filter:none;
       box-shadow:none;
     }
+
+    /* =======================
+       Operis App Showcase
+       ======================= */
+    .product-section{
+      margin:36px 0 46px;
+      padding:24px;
+      border-radius:30px;
+      background:
+        radial-gradient(circle at 96% 6%,rgba(67,217,255,.20),transparent 34%),
+        radial-gradient(circle at 5% 0%,rgba(139,44,255,.22),transparent 34%),
+        linear-gradient(145deg,rgba(255,255,255,.09),rgba(255,255,255,.035));
+      border:1px solid var(--line);
+      box-shadow:0 24px 60px rgba(0,0,0,.26);
+      break-inside:avoid;
+    }
+    .product-section.hidden{display:none}
+    :root.light .product-section{
+      background:#ffffff;
+      box-shadow:var(--shadow);
+      border-color:rgba(15,23,42,.12);
+    }
+    .product-head{
+      display:grid;
+      grid-template-columns:1fr auto;
+      gap:22px;
+      align-items:end;
+      margin-bottom:22px;
+    }
+    .product-head small{
+      display:block;
+      color:#b78cff;
+      text-transform:uppercase;
+      letter-spacing:1.6px;
+      font-size:11px;
+      font-weight:900;
+      margin-bottom:6px;
+    }
+    .product-head h2{
+      margin:0 0 8px;
+      font-size:31px;
+      line-height:1.04;
+      letter-spacing:-.9px;
+    }
+    .product-head p{
+      margin:0;
+      color:var(--muted);
+      max-width:900px;
+      text-align:justify;
+      line-height:1.48;
+    }
+    .product-badges{
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+      max-width:360px;
+    }
+    .product-badges span{
+      padding:7px 10px;
+      border-radius:999px;
+      background:rgba(67,217,255,.11);
+      border:1px solid rgba(67,217,255,.18);
+      color:#94efff;
+      font-size:12px;
+      font-weight:800;
+      white-space:nowrap;
+    }
+    :root.light .product-badges span{
+      color:#16647f;
+      background:#eefcff;
+      border-color:#d6f4fa;
+    }
+    .product-layout{
+      display:grid;
+      grid-template-columns:430px minmax(0,1fr);
+      gap:24px;
+      align-items:start;
+    }
+    .phone-shell{
+      position:sticky;
+      top:18px;
+      border-radius:42px;
+      padding:13px;
+      background:
+        radial-gradient(circle at 90% 0%,rgba(67,217,255,.18),transparent 28%),
+        linear-gradient(145deg,#050b22,#28146d);
+      border:1px solid rgba(255,255,255,.18);
+      box-shadow:0 30px 80px rgba(0,0,0,.44);
+    }
+    .phone-screen{
+      position:relative;
+      height:820px;
+      overflow:hidden;
+      border-radius:32px;
+      background:
+        radial-gradient(circle at 83% 10%,rgba(40,224,185,.38),transparent 24%),
+        linear-gradient(180deg,#091b35 0 13%,#effcf8 13% 100%);
+      color:#112033;
+    }
+    .phone-status{
+      height:38px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:0 20px;
+      color:white;
+      font-size:12px;
+      opacity:.92;
+    }
+    .phone-appbar{
+      height:76px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:0 22px 10px;
+      color:white;
+    }
+    .phone-appbar b{
+      display:block;
+      font-size:23px;
+      letter-spacing:-.5px;
+    }
+    .phone-appbar span{
+      display:block;
+      color:#6ee9cf;
+      font-size:12px;
+      margin-top:1px;
+    }
+    .phone-appbar em{
+      font-style:normal;
+      font-weight:800;
+      color:#ddfff6;
+      font-size:13px;
+    }
+    .phone-content{
+      position:absolute;
+      inset:114px 0 76px;
+      overflow:hidden;
+      padding:18px;
+    }
+    .phone-page{
+      display:none;
+      height:100%;
+      overflow:auto;
+      padding-right:2px;
+      scrollbar-width:thin;
+    }
+    .phone-page.active{
+      display:block;
+      animation:fadeSlide .28s ease;
+    }
+    @keyframes fadeSlide{
+      from{opacity:0;transform:translateY(10px)}
+      to{opacity:1;transform:translateY(0)}
+    }
+    .mobile-hero{
+      min-height:206px;
+      border-radius:32px;
+      padding:25px;
+      color:white;
+      background:
+        radial-gradient(circle at 87% 12%,rgba(255,255,255,.28),transparent 25%),
+        radial-gradient(circle at 88% 85%,rgba(40,224,185,.42),transparent 34%),
+        linear-gradient(145deg,#0c1f3a 0%,#0b2743 42%,#13c99c 100%);
+      box-shadow:0 18px 38px rgba(8,22,48,.22);
+      margin-bottom:16px;
+    }
+    .mobile-hero h3{
+      margin:0 0 12px;
+      font-size:30px;
+      letter-spacing:-1px;
+      font-weight:650;
+    }
+    .mobile-hero p{
+      margin:0;
+      color:rgba(255,255,255,.88);
+      line-height:1.35;
+      font-size:14px;
+    }
+    .mobile-pill{
+      display:inline-block;
+      margin-top:18px;
+      padding:8px 13px;
+      border-radius:999px;
+      background:rgba(255,255,255,.14);
+      color:#eafffb;
+      font-size:12px;
+      font-weight:800;
+    }
+    .mobile-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:12px;
+      margin:12px 0;
+    }
+    .mobile-metric,.mobile-card,.mobile-form-card{
+      background:rgba(255,255,255,.94);
+      border:1px solid rgba(11,38,67,.08);
+      border-radius:23px;
+      box-shadow:0 14px 30px rgba(10,33,45,.10);
+    }
+    .mobile-metric{
+      padding:16px;
+      min-height:104px;
+    }
+    .mobile-metric span{
+      color:#8a94a3;
+      font-size:12px;
+      font-weight:700;
+    }
+    .mobile-metric strong{
+      display:block;
+      margin-top:10px;
+      color:#112033;
+      font-size:26px;
+      letter-spacing:-.7px;
+      font-weight:650;
+    }
+    .mobile-metric small{
+      color:#9aa3af;
+      font-size:11px;
+    }
+    .mobile-card{
+      padding:18px;
+      margin:14px 0;
+    }
+    .mobile-card-title{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      margin-bottom:12px;
+      color:#112033;
+      font-size:18px;
+      font-weight:750;
+    }
+    .mobile-dot{
+      width:10px;
+      height:10px;
+      border-radius:50%;
+      background:#18c7a0;
+      box-shadow:0 0 18px rgba(24,199,160,.45);
+    }
+    .mobile-field{
+      border:1.8px solid #9aa3af;
+      border-radius:20px;
+      padding:14px 15px;
+      color:#18233a;
+      margin:10px 0;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      min-height:56px;
+      background:rgba(255,255,255,.64);
+      gap:12px;
+    }
+    .mobile-field b{
+      font-size:13px;
+      color:#8a94a3;
+      font-weight:800;
+      display:block;
+      margin-bottom:2px;
+    }
+    .mobile-field span{
+      font-size:15px;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+      max-width:250px;
+      display:block;
+    }
+    .mobile-status-card{
+      border-radius:22px;
+      padding:16px;
+      border:1px solid rgba(239,68,68,.18);
+      background:#fff9f8;
+      box-shadow:0 12px 28px rgba(239,68,68,.08);
+      color:#1f2937;
+      margin:12px 0;
+    }
+    .mobile-status-card .flag{
+      float:right;
+      padding:6px 10px;
+      border-radius:999px;
+      background:#ffe1e1;
+      color:#bd3345;
+      font-weight:900;
+      font-size:11px;
+    }
+    .mobile-status-card h4{
+      margin:0 0 6px;
+      font-size:20px;
+      letter-spacing:-.5px;
+    }
+    .mobile-status-card p{
+      margin:0 0 6px;
+      color:#334155;
+    }
+    .mobile-info-row{
+      display:flex;
+      justify-content:space-between;
+      gap:14px;
+      border-top:1px solid #edf1f4;
+      padding-top:9px;
+      margin-top:8px;
+      color:#8b95a1;
+      font-size:12px;
+    }
+    .mobile-info-row b{
+      color:#18233a;
+      text-align:right;
+      max-width:190px;
+    }
+    .option-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:10px;
+      margin:10px 0 14px;
+    }
+    .option{
+      min-height:54px;
+      border-radius:17px;
+      display:grid;
+      place-items:center;
+      padding:8px;
+      text-align:center;
+      background:#eef3fb;
+      color:#1f2937;
+      border:1px solid #dfe7f5;
+      font-size:12px;
+      font-weight:800;
+    }
+    .option.selected{
+      background:#102946;
+      color:white;
+      box-shadow:0 10px 22px rgba(16,41,70,.22);
+    }
+    .mobile-input{
+      min-height:58px;
+      display:flex;
+      align-items:center;
+      padding:0 16px;
+      border-radius:18px;
+      border:1.8px solid #8b95a1;
+      color:#1f2937;
+      background:rgba(255,255,255,.58);
+      margin:10px 0 4px;
+      font-size:15px;
+    }
+    .mobile-help{
+      color:#98a1ad;
+      font-size:11px;
+      margin-bottom:10px;
+    }
+    .mobile-btn{
+      border-radius:20px;
+      border:0;
+      min-height:56px;
+      width:100%;
+      display:grid;
+      place-items:center;
+      padding:0 14px;
+      font-weight:800;
+      margin:12px 0;
+      background:#102946;
+      color:white;
+      box-shadow:0 12px 25px rgba(16,41,70,.18);
+    }
+    .mobile-btn.green{
+      background:linear-gradient(90deg,#16c79a,#13c0a4);
+      color:#082033;
+    }
+    .mobile-btn.light{
+      background:#edf2fa;
+      color:#bd3345;
+      box-shadow:none;
+    }
+    .saved-item{
+      background:rgba(255,255,255,.94);
+      border-radius:22px;
+      padding:16px;
+      margin-bottom:13px;
+      border:1px solid rgba(11,38,67,.06);
+    }
+    .saved-item h4{
+      margin:0 0 4px;
+      color:#142034;
+      font-size:17px;
+    }
+    .saved-item p{
+      margin:3px 0;
+      color:#4b5563;
+      font-size:13px;
+    }
+    .saved-item .late{
+      color:#bd3345;
+      font-weight:900;
+    }
+    .phone-tabs{
+      position:absolute;
+      left:0;
+      right:0;
+      bottom:0;
+      height:76px;
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      background:rgba(255,255,255,.94);
+      border-top:1px solid rgba(11,38,67,.08);
+      color:#8d96a5;
+    }
+    .phone-tab{
+      display:grid;
+      place-items:center;
+      gap:2px;
+      font-size:12px;
+      font-weight:800;
+      cursor:pointer;
+    }
+    .phone-tab i{
+      width:48px;
+      height:32px;
+      border-radius:999px;
+      display:grid;
+      place-items:center;
+      background:transparent;
+      color:#8d96a5;
+      font-style:normal;
+      font-size:18px;
+    }
+    .phone-tab.active{
+      color:#102946;
+    }
+    .phone-tab.active i{
+      background:#c9fff0;
+      color:#102946;
+    }
+    .product-side{
+      display:grid;
+      gap:16px;
+    }
+    .product-card{
+      background:rgba(255,255,255,.075);
+      border:1px solid var(--line);
+      border-radius:22px;
+      padding:18px;
+    }
+    :root.light .product-card{
+      background:#fff;
+      border-color:rgba(15,23,42,.10);
+    }
+    .product-card h3{
+      margin:0 0 8px;
+      font-size:20px;
+      letter-spacing:-.4px;
+    }
+    .product-card p{
+      margin:0;
+      color:var(--muted);
+      text-align:justify;
+      line-height:1.48;
+    }
+    .product-actions{
+      display:grid;
+      grid-template-columns:repeat(5,1fr);
+      gap:8px;
+      margin-top:14px;
+    }
+    .app-tab-btn{
+      border:1px solid var(--line);
+      background:var(--soft);
+      color:var(--text);
+      padding:10px 9px;
+      border-radius:13px;
+      cursor:pointer;
+      font-weight:800;
+      font-size:12px;
+    }
+    .app-tab-btn.active{
+      color:#fff;
+      border-color:transparent;
+      background:linear-gradient(90deg,var(--cyan),var(--purple));
+      box-shadow:0 12px 28px rgba(67,217,255,.16);
+    }
+    .architecture-grid{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:10px;
+      margin-top:12px;
+    }
+    .arch-box{
+      padding:12px;
+      border-radius:16px;
+      background:var(--soft);
+      border:1px solid var(--line);
+    }
+    .arch-box b{
+      display:block;
+      margin-bottom:4px;
+      color:var(--text);
+    }
+    .arch-box span{
+      color:var(--muted);
+      font-size:12px;
+      line-height:1.35;
+    }
+    .flow-steps{
+      display:grid;
+      grid-template-columns:repeat(5,1fr);
+      gap:10px;
+      margin-top:12px;
+    }
+    .flow-step{
+      min-height:110px;
+      border-radius:18px;
+      padding:13px;
+      background:linear-gradient(145deg,rgba(139,44,255,.16),rgba(67,217,255,.08));
+      border:1px solid var(--line);
+    }
+    .flow-step strong{
+      display:grid;
+      place-items:center;
+      width:30px;
+      height:30px;
+      border-radius:11px;
+      background:linear-gradient(135deg,var(--cyan),var(--purple));
+      color:#fff;
+      margin-bottom:10px;
+    }
+    .flow-step b{
+      display:block;
+      margin-bottom:5px;
+    }
+    .flow-step span{
+      color:var(--muted);
+      font-size:12px;
+      line-height:1.35;
+    }
+    @media(max-width:1180px){
+      .product-layout{grid-template-columns:1fr}
+      .phone-shell{position:relative;top:0;max-width:430px;margin:0 auto}
+      .flow-steps{grid-template-columns:1fr 1fr}
+      .product-actions{grid-template-columns:1fr 1fr}
+      .product-head{display:block}
+      .product-badges{justify-content:flex-start;margin-top:12px;max-width:none}
+    }
+    @media(max-width:640px){
+      .product-section{padding:16px;border-radius:24px}
+      .phone-screen{height:760px}
+      .mobile-grid{grid-template-columns:1fr}
+      .product-actions{grid-template-columns:1fr}
+      .flow-steps{grid-template-columns:1fr}
+      .architecture-grid{grid-template-columns:1fr}
+    }
+
+
+    /* =======================
+       Sobre mim
+       ======================= */
+    .about-section{
+      margin:32px 0 38px;
+      padding:24px;
+      border-radius:30px;
+      background:
+        radial-gradient(circle at 96% 4%,rgba(67,217,255,.18),transparent 34%),
+        radial-gradient(circle at 4% 0%,rgba(139,44,255,.18),transparent 32%),
+        linear-gradient(145deg,rgba(255,255,255,.09),rgba(255,255,255,.035));
+      border:1px solid var(--line);
+      box-shadow:0 24px 60px rgba(0,0,0,.22);
+    }
+    :root.light .about-section{
+      background:#ffffff;
+      box-shadow:var(--shadow);
+      border-color:rgba(15,23,42,.12);
+    }
+    .about-grid{
+      display:grid;
+      grid-template-columns:1.12fr .88fr;
+      gap:22px;
+      align-items:stretch;
+    }
+    .about-main{
+      padding:22px;
+      border-radius:24px;
+      background:rgba(255,255,255,.075);
+      border:1px solid var(--line);
+    }
+    :root.light .about-main{
+      background:#f8fbff;
+      border-color:rgba(15,23,42,.10);
+    }
+    .about-kicker{
+      display:block;
+      color:#b78cff;
+      text-transform:uppercase;
+      letter-spacing:1.6px;
+      font-size:11px;
+      font-weight:900;
+      margin-bottom:7px;
+    }
+    .about-main h2{
+      margin:0 0 12px;
+      font-size:32px;
+      line-height:1.04;
+      letter-spacing:-.9px;
+    }
+    .about-main p{
+      margin:0 0 12px;
+      color:var(--muted);
+      text-align:justify;
+      line-height:1.55;
+    }
+    .about-highlight{
+      margin-top:16px;
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:12px;
+    }
+    .about-stat{
+      padding:14px;
+      border-radius:18px;
+      background:linear-gradient(145deg,rgba(139,44,255,.16),rgba(67,217,255,.08));
+      border:1px solid var(--line);
+    }
+    .about-stat strong{
+      display:block;
+      font-size:25px;
+      letter-spacing:-.7px;
+      color:var(--text);
+    }
+    .about-stat span{
+      display:block;
+      margin-top:4px;
+      font-size:12px;
+      color:var(--muted);
+      line-height:1.3;
+    }
+    .about-side{
+      display:grid;
+      gap:14px;
+    }
+    .about-card{
+      padding:18px;
+      border-radius:22px;
+      background:rgba(255,255,255,.075);
+      border:1px solid var(--line);
+    }
+    :root.light .about-card{
+      background:#ffffff;
+      border-color:rgba(15,23,42,.10);
+    }
+    .about-card h3{
+      margin:0 0 9px;
+      font-size:18px;
+      letter-spacing:-.3px;
+    }
+    .about-card ul{
+      margin:0;
+      padding-left:18px;
+      color:var(--muted);
+      line-height:1.55;
+    }
+    .about-card li{
+      margin:5px 0;
+    }
+    .about-tags{
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+    }
+    .about-tags span{
+      padding:7px 10px;
+      border-radius:999px;
+      background:rgba(67,217,255,.11);
+      border:1px solid rgba(67,217,255,.18);
+      color:#94efff;
+      font-size:12px;
+      font-weight:800;
+    }
+    :root.light .about-tags span{
+      color:#16647f;
+      background:#eefcff;
+      border-color:#d6f4fa;
+    }
+    @media(max-width:980px){
+      .about-grid{grid-template-columns:1fr}
+      .about-highlight{grid-template-columns:1fr}
+    }
+
+
+    /* =======================
+       Mapas Operacionais
+       ======================= */
+    .geo-section{
+      margin:38px 0 46px;
+      padding:24px;
+      border-radius:30px;
+      background:
+        radial-gradient(circle at 96% 4%,rgba(67,217,255,.18),transparent 36%),
+        radial-gradient(circle at 3% 2%,rgba(139,44,255,.20),transparent 35%),
+        linear-gradient(145deg,rgba(255,255,255,.09),rgba(255,255,255,.035));
+      border:1px solid var(--line);
+      box-shadow:0 24px 60px rgba(0,0,0,.24);
+    }
+    .geo-section.hidden{display:none}
+    :root.light .geo-section{
+      background:#ffffff;
+      box-shadow:var(--shadow);
+      border-color:rgba(15,23,42,.12);
+    }
+    .geo-head{
+      display:grid;
+      grid-template-columns:1fr auto;
+      gap:22px;
+      align-items:end;
+      margin-bottom:22px;
+    }
+    .geo-head small{
+      display:block;
+      color:#b78cff;
+      text-transform:uppercase;
+      letter-spacing:1.6px;
+      font-size:11px;
+      font-weight:900;
+      margin-bottom:6px;
+    }
+    .geo-head h2{
+      margin:0 0 8px;
+      font-size:31px;
+      line-height:1.04;
+      letter-spacing:-.9px;
+    }
+    .geo-head p{
+      margin:0;
+      color:var(--muted);
+      max-width:920px;
+      text-align:justify;
+      line-height:1.48;
+    }
+    .geo-badges{
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+      max-width:380px;
+    }
+    .geo-badges span{
+      padding:7px 10px;
+      border-radius:999px;
+      background:rgba(67,217,255,.11);
+      border:1px solid rgba(67,217,255,.18);
+      color:#94efff;
+      font-size:12px;
+      font-weight:800;
+      white-space:nowrap;
+    }
+    :root.light .geo-badges span{
+      color:#16647f;
+      background:#eefcff;
+      border-color:#d6f4fa;
+    }
+    .geo-cases{
+      display:grid;
+      gap:22px;
+    }
+    .geo-case{
+      border-radius:26px;
+      padding:18px;
+      background:rgba(255,255,255,.065);
+      border:1px solid var(--line);
+      box-shadow:0 18px 48px rgba(0,0,0,.18);
+    }
+    :root.light .geo-case{
+      background:#fff;
+      border-color:rgba(15,23,42,.10);
+      box-shadow:0 20px 45px rgba(15,23,42,.08);
+    }
+    .geo-case-head{
+      display:flex;
+      justify-content:space-between;
+      gap:18px;
+      align-items:flex-start;
+      margin-bottom:14px;
+    }
+    .geo-case-head h3{
+      margin:0 0 6px;
+      font-size:24px;
+      letter-spacing:-.5px;
+    }
+    .geo-case-head p{
+      margin:0;
+      color:var(--muted);
+      text-align:justify;
+      max-width:860px;
+    }
+    .geo-case-head mark{
+      background:linear-gradient(135deg,var(--cyan),var(--purple));
+      color:#fff;
+      border-radius:999px;
+      padding:7px 10px;
+      font-size:12px;
+      font-weight:900;
+      white-space:nowrap;
+    }
+    .geo-dashboard{
+      overflow:hidden;
+      border-radius:22px;
+      border:1px solid rgba(255,255,255,.14);
+      background:linear-gradient(135deg,#07114a,#100a43);
+      color:#fff;
+      box-shadow:inset 0 0 0 1px rgba(255,255,255,.04);
+    }
+    .geo-top{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:16px;
+      padding:14px 16px;
+      background:linear-gradient(90deg,#121860,#43189b 60%,#1c0d5f);
+      border-bottom:1px solid rgba(255,255,255,.12);
+    }
+    .geo-logo{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-weight:900;
+    }
+    .geo-logo span{
+      width:38px;
+      height:38px;
+      border-radius:13px;
+      display:grid;
+      place-items:center;
+      background:linear-gradient(135deg,var(--cyan),var(--purple));
+      color:#fff;
+      font-weight:900;
+    }
+    .geo-tabs{
+      display:flex;
+      gap:7px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+    .geo-tabs span{
+      padding:7px 9px;
+      border-radius:9px;
+      background:rgba(255,255,255,.10);
+      border:1px solid rgba(255,255,255,.12);
+      font-size:11px;
+      font-weight:800;
+      color:#e8ecff;
+    }
+    .geo-filters{
+      display:grid;
+      grid-template-columns:170px repeat(4,1fr);
+      gap:12px;
+      align-items:center;
+      padding:14px 16px;
+      background:rgba(255,255,255,.04);
+      border-bottom:1px solid rgba(255,255,255,.10);
+    }
+    .geo-filters b{
+      text-transform:uppercase;
+      font-size:15px;
+    }
+    .geo-filters label{
+      display:grid;
+      gap:4px;
+      color:#aeb6dd;
+      font-size:10px;
+      text-transform:uppercase;
+      letter-spacing:.4px;
+      font-weight:900;
+    }
+    .geo-filters label span{
+      height:30px;
+      display:flex;
+      align-items:center;
+      padding:0 10px;
+      border-radius:10px;
+      background:rgba(255,255,255,.10);
+      border:1px solid rgba(255,255,255,.10);
+      color:#fff;
+      text-transform:none;
+      letter-spacing:0;
+      font-weight:700;
+    }
+    .geo-kpis{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:12px;
+      padding:16px;
+    }
+    .geo-kpi{
+      position:relative;
+      min-height:96px;
+      padding:15px;
+      border-radius:18px;
+      background:linear-gradient(145deg,rgba(255,255,255,.13),rgba(255,255,255,.055));
+      border:1px solid rgba(255,255,255,.13);
+      overflow:hidden;
+    }
+    .geo-kpi::before{
+      content:"";
+      position:absolute;
+      left:0;
+      top:18px;
+      width:5px;
+      height:54px;
+      border-radius:999px;
+      background:linear-gradient(180deg,var(--cyan),var(--purple));
+    }
+    .geo-kpi span{
+      display:block;
+      margin-left:10px;
+      color:#cbd5ff;
+      font-size:11px;
+      text-transform:uppercase;
+      font-weight:900;
+    }
+    .geo-kpi strong{
+      display:block;
+      margin:9px 0 0 10px;
+      font-size:27px;
+      letter-spacing:-.8px;
+    }
+    .geo-body{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:14px;
+      padding:0 16px 16px;
+    }
+    .geo-panel{
+      min-height:365px;
+      padding:14px;
+      border-radius:18px;
+      background:rgba(255,255,255,.075);
+      border:1px solid rgba(255,255,255,.12);
+      overflow:hidden;
+    }
+    .geo-panel h4{
+      margin:0 0 12px;
+      text-align:center;
+      font-size:17px;
+      letter-spacing:-.3px;
+    }
+    .geo-map{
+      position:relative;
+      min-height:310px;
+      border-radius:16px;
+      overflow:hidden;
+      background:
+        radial-gradient(circle at 25% 20%,rgba(255,255,255,.12),transparent 16%),
+        linear-gradient(135deg,#101946,#17225a);
+      border:1px solid rgba(255,255,255,.12);
+    }
+    .map-shape{
+      position:absolute;
+      inset:28px 42px 20px 45px;
+      opacity:.98;
+    }
+    .map-shape svg{
+      width:100%;
+      height:100%;
+      display:block;
+      filter:drop-shadow(0 12px 24px rgba(0,0,0,.25));
+    }
+    .map-marker{
+      --x:50%;
+      --y:50%;
+      --c:var(--cyan);
+      position:absolute;
+      left:var(--x);
+      top:var(--y);
+      width:14px;
+      height:14px;
+      border-radius:50%;
+      background:var(--c);
+      border:2px solid rgba(255,255,255,.92);
+      box-shadow:0 0 0 5px color-mix(in srgb,var(--c) 20%,transparent),0 8px 18px rgba(0,0,0,.28);
+      transform:translate(-50%,-50%);
+    }
+    .map-marker.big{
+      width:22px;
+      height:22px;
+      display:grid;
+      place-items:center;
+      font-size:9px;
+      color:#101828;
+      font-weight:900;
+      background:#fff;
+      border-color:var(--cyan);
+    }
+    .map-legend{
+      position:absolute;
+      left:12px;
+      bottom:12px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:6px;
+      max-width:90%;
+    }
+    .map-legend span{
+      display:flex;
+      align-items:center;
+      gap:5px;
+      padding:5px 7px;
+      border-radius:999px;
+      background:rgba(0,0,0,.30);
+      color:#e8ecff;
+      font-size:10px;
+      font-weight:700;
+    }
+    .map-legend i{
+      width:8px;
+      height:8px;
+      border-radius:50%;
+      background:var(--c);
+      display:inline-block;
+    }
+    .geo-table{
+      width:100%;
+      border-collapse:collapse;
+      overflow:hidden;
+      border-radius:13px;
+      font-size:12px;
+    }
+    .geo-table th{
+      background:rgba(139,44,255,.34);
+      color:#fff;
+      text-align:left;
+      padding:9px;
+      font-size:11px;
+      text-transform:uppercase;
+    }
+    .geo-table td{
+      padding:8px 9px;
+      color:#e1e6ff;
+      border-bottom:1px solid rgba(255,255,255,.08);
+    }
+    .geo-table tr:nth-child(even) td{
+      background:rgba(255,255,255,.035);
+    }
+    .geo-bottom{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:14px;
+      padding:0 16px 16px;
+    }
+    .geo-bars{
+      display:grid;
+      gap:10px;
+    }
+    .geo-bar-row{
+      display:grid;
+      grid-template-columns:135px 1fr 52px;
+      gap:10px;
+      align-items:center;
+      font-size:12px;
+      color:#e8ecff;
+    }
+    .geo-track{
+      height:12px;
+      border-radius:999px;
+      background:rgba(255,255,255,.12);
+      overflow:hidden;
+    }
+    .geo-track i{
+      display:block;
+      height:100%;
+      border-radius:inherit;
+      background:linear-gradient(90deg,var(--cyan),var(--purple));
+    }
+    .geo-track i.hot{
+      background:linear-gradient(90deg,var(--orange),var(--pink));
+    }
+    .geo-track i.green{
+      background:linear-gradient(90deg,var(--green),var(--teal));
+    }
+    @media(max-width:1180px){
+      .geo-head{display:block}
+      .geo-badges{justify-content:flex-start;max-width:none;margin-top:12px}
+      .geo-body,.geo-bottom{grid-template-columns:1fr}
+      .geo-filters{grid-template-columns:1fr 1fr}
+      .geo-kpis{grid-template-columns:1fr 1fr}
+    }
+    @media(max-width:640px){
+      .geo-section{padding:16px}
+      .geo-kpis,.geo-filters{grid-template-columns:1fr}
+      .geo-top{display:block}
+      .geo-tabs{justify-content:flex-start;margin-top:12px}
+      .geo-bar-row{grid-template-columns:100px 1fr 42px}
+    }
+
+
+    /* =======================
+       Interação dos mapas
+       ======================= */
+    .geo-map{
+      cursor:grab;
+      user-select:none;
+      touch-action:none;
+    }
+    .geo-map.dragging{
+      cursor:grabbing;
+    }
+    .map-layer{
+      position:absolute;
+      inset:0;
+      transform-origin:center center;
+      will-change:transform;
+      transition:transform .08s linear;
+    }
+    .map-controls{
+      position:absolute;
+      top:12px;
+      right:12px;
+      z-index:8;
+      display:flex;
+      gap:6px;
+      background:rgba(3,7,18,.38);
+      border:1px solid rgba(255,255,255,.14);
+      border-radius:999px;
+      padding:6px;
+      backdrop-filter:blur(12px);
+      -webkit-backdrop-filter:blur(12px);
+    }
+    .map-controls button{
+      width:30px;
+      height:30px;
+      border-radius:50%;
+      border:1px solid rgba(255,255,255,.16);
+      background:rgba(255,255,255,.12);
+      color:#fff;
+      font-weight:900;
+      cursor:pointer;
+      line-height:1;
+    }
+    .map-controls button:hover{
+      background:linear-gradient(135deg,var(--cyan),var(--purple));
+      border-color:transparent;
+    }
+    .map-hint{
+      position:absolute;
+      left:12px;
+      top:12px;
+      z-index:7;
+      padding:7px 10px;
+      border-radius:999px;
+      background:rgba(3,7,18,.36);
+      border:1px solid rgba(255,255,255,.12);
+      color:#dbeafe;
+      font-size:11px;
+      font-weight:800;
+      backdrop-filter:blur(12px);
+      -webkit-backdrop-filter:blur(12px);
+      pointer-events:none;
+    }
+    .map-marker{
+      cursor:pointer;
+      z-index:5;
+      transition:transform .16s ease, box-shadow .16s ease, filter .16s ease;
+    }
+    .map-marker:hover{
+      transform:translate(-50%,-50%) scale(1.35);
+      filter:saturate(1.2);
+      box-shadow:0 0 0 8px color-mix(in srgb,var(--c) 24%,transparent),0 14px 30px rgba(0,0,0,.34);
+    }
+    .map-marker.off{
+      opacity:.18;
+      filter:grayscale(1);
+    }
+    .map-legend span{
+      cursor:pointer;
+      transition:transform .14s ease, opacity .14s ease, background .14s ease;
+    }
+    .map-legend span:hover{
+      transform:translateY(-1px);
+      background:rgba(255,255,255,.12);
+    }
+    .map-legend span.muted{
+      opacity:.38;
+    }
+    .map-tooltip{
+      position:absolute;
+      z-index:20;
+      min-width:180px;
+      max-width:240px;
+      padding:10px 11px;
+      border-radius:14px;
+      background:rgba(5,10,31,.92);
+      border:1px solid rgba(255,255,255,.14);
+      color:#fff;
+      box-shadow:0 18px 40px rgba(0,0,0,.38);
+      backdrop-filter:blur(14px);
+      -webkit-backdrop-filter:blur(14px);
+      transform:translate(-50%, calc(-100% - 16px));
+      pointer-events:none;
+      display:none;
+    }
+    .map-tooltip strong{
+      display:block;
+      font-size:13px;
+      margin-bottom:3px;
+    }
+    .map-tooltip span{
+      display:block;
+      color:#b7c3d5;
+      font-size:11px;
+      line-height:1.35;
+    }
+    .map-tooltip::after{
+      content:"";
+      position:absolute;
+      left:50%;
+      bottom:-7px;
+      width:12px;
+      height:12px;
+      background:rgba(5,10,31,.92);
+      border-right:1px solid rgba(255,255,255,.14);
+      border-bottom:1px solid rgba(255,255,255,.14);
+      transform:translateX(-50%) rotate(45deg);
+    }
+
+
+    .about-photo-wrap{
+      display:flex;
+      align-items:center;
+      gap:18px;
+      margin-bottom:18px;
+    }
+    .about-photo{
+      width:156px;
+      height:156px;
+      border-radius:50%;
+      padding:4px;
+      background:linear-gradient(135deg,var(--cyan),var(--purple),var(--pink));
+      box-shadow:0 22px 48px rgba(0,0,0,.28),0 0 0 1px rgba(255,255,255,.12);
+      flex:0 0 auto;
+    }
+    .about-photo img{
+      width:100%;
+      height:100%;
+      display:block;
+      object-fit:cover;
+      border-radius:50%;
+      border:4px solid rgba(7,11,46,.92);
+      filter:contrast(1.04) saturate(.92);
+    }
+    .about-photo-caption{
+      min-width:0;
+    }
+    .about-photo-caption b{
+      display:block;
+      font-size:20px;
+      letter-spacing:-.4px;
+      color:var(--text);
+      margin-bottom:3px;
+    }
+    .about-photo-caption span{
+      display:block;
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.35;
+    }
+    :root.light .about-photo img{
+      border-color:#ffffff;
+    }
+    @media(max-width:640px){
+      .about-photo-wrap{
+        display:block;
+        text-align:left;
+      }
+      .about-photo{
+        width:132px;
+        height:132px;
+        margin-bottom:12px;
+      }
+    }
+
 @page{size:A4 landscape;margin:8mm}
     @media print{body{background:#070b2e}.app{display:block}aside,.topbar,.screen-actions,.modal,.toast{display:none!important}main{padding:0}.screen-card{break-inside:avoid;page-break-inside:avoid;margin:0 0 8mm;box-shadow:none}.panel,.kpi{box-shadow:none}}
     @media(max-width:1150px){.app{grid-template-columns:1fr}aside{position:relative;height:auto}.hero-grid,.mock-grid.two,.mock-grid.three,.donut-wrap{grid-template-columns:1fr}.kpi-grid,.mock-kpis.four{grid-template-columns:1fr 1fr}.mock-filters{grid-template-columns:1fr 1fr}.search{display:none}.screen-head{display:block}.screen-actions{margin-top:12px}}
     @media(max-width:640px){main{padding:20px}.kpi-grid,.mock-kpis.four{grid-template-columns:1fr}.mock-top{display:block}.mock-top nav{margin-top:12px;justify-content:flex-start}.gantt-row{grid-template-columns:1fr}.timeline{display:none}.mock-filters{grid-template-columns:1fr}.topbar{display:block}.toolbar{justify-content:flex-start;margin-top:10px}}
+  
+    /* =======================
+       Mobile-first refinements
+       ======================= */
+    @media(max-width:820px){
+      body{
+        overflow-x:hidden;
+      }
+      .app{
+        display:block;
+      }
+      aside{
+        position:relative;
+        height:auto;
+        max-height:none;
+        padding:18px 16px;
+        border-right:0;
+        border-bottom:1px solid var(--line);
+        box-shadow:0 16px 38px rgba(0,0,0,.18);
+      }
+      .brand{
+        margin-bottom:14px;
+      }
+      .brand h1{
+        font-size:24px;
+      }
+      .side-search{
+        margin-bottom:12px;
+      }
+      .menu{
+        display:flex;
+        gap:8px;
+        overflow-x:auto;
+        padding-bottom:8px;
+        margin-bottom:12px;
+        scrollbar-width:thin;
+        scroll-snap-type:x proximity;
+      }
+      .menu a{
+        flex:0 0 auto;
+        white-space:nowrap;
+        padding:10px 12px;
+        scroll-snap-align:start;
+      }
+      .filter-label{
+        margin:12px 0 8px;
+      }
+      .filter-stack{
+        display:flex;
+        gap:8px;
+        overflow-x:auto;
+        padding-bottom:8px;
+        scrollbar-width:thin;
+      }
+      .filter-btn{
+        flex:0 0 auto;
+        white-space:nowrap;
+      }
+      .side-line,
+      .profile{
+        display:none;
+      }
+      main{
+        padding:18px 14px 30px;
+      }
+      .topbar{
+        margin:0 0 24px 0 !important;
+        padding:0 !important;
+        display:block !important;
+      }
+      .headline h2{
+        font-size:27px;
+        line-height:1.05;
+      }
+      .toolbar{
+        justify-content:flex-start !important;
+        margin:14px 0 0 0 !important;
+        padding:0 !important;
+      }
+      .tool-btn{
+        padding:10px 14px;
+      }
+      .hero-grid{
+        display:grid;
+        grid-template-columns:1fr !important;
+        gap:14px;
+      }
+      .panel,
+      .about-section,
+      .product-section,
+      .geo-section,
+      .screen-card{
+        border-radius:22px;
+        padding:16px;
+        margin-left:0;
+        margin-right:0;
+      }
+      .intro h3,
+      .about-main h2,
+      .product-head h2,
+      .geo-head h2{
+        font-size:25px;
+        line-height:1.08;
+      }
+      .intro p,
+      .about-main p,
+      .product-head p,
+      .geo-head p,
+      .screen-head p{
+        text-align:left;
+      }
+      .kpi-grid{
+        grid-template-columns:1fr 1fr !important;
+        gap:10px;
+      }
+      .kpi{
+        min-height:112px;
+        padding:14px;
+      }
+      .kpi strong{
+        font-size:30px;
+      }
+      .about-grid,
+      .product-layout{
+        grid-template-columns:1fr !important;
+      }
+      .about-main,
+      .about-card,
+      .product-card{
+        padding:16px;
+        border-radius:20px;
+      }
+      .about-photo-wrap{
+        gap:14px;
+      }
+      .about-photo{
+        width:116px !important;
+        height:116px !important;
+      }
+      .about-photo-caption b{
+        font-size:17px;
+      }
+      .about-highlight{
+        grid-template-columns:1fr !important;
+      }
+      .phone-shell{
+        position:relative !important;
+        top:0 !important;
+        max-width:390px;
+        width:100%;
+        margin:0 auto;
+        border-radius:34px;
+        padding:10px;
+      }
+      .phone-screen{
+        height:720px !important;
+        border-radius:28px;
+      }
+      .phone-content{
+        padding:14px;
+      }
+      .mobile-hero{
+        min-height:170px;
+        padding:20px;
+        border-radius:26px;
+      }
+      .mobile-hero h3{
+        font-size:25px;
+      }
+      .mobile-grid{
+        grid-template-columns:1fr 1fr !important;
+        gap:10px;
+      }
+      .mobile-metric{
+        min-height:92px;
+        padding:13px;
+      }
+      .mobile-metric strong{
+        font-size:22px;
+      }
+      .product-actions{
+        display:flex !important;
+        gap:8px;
+        overflow-x:auto;
+        padding-bottom:8px;
+      }
+      .app-tab-btn{
+        flex:0 0 auto;
+        white-space:nowrap;
+      }
+      .architecture-grid,
+      .flow-steps{
+        grid-template-columns:1fr !important;
+      }
+      .geo-head{
+        display:block !important;
+      }
+      .geo-badges{
+        justify-content:flex-start;
+        margin-top:12px;
+      }
+      .geo-case{
+        padding:14px;
+        border-radius:22px;
+      }
+      .geo-case-head{
+        display:block;
+      }
+      .geo-case-head mark{
+        display:inline-block;
+        margin-top:10px;
+      }
+      .geo-dashboard,
+      .mock-screen{
+        border-radius:18px;
+      }
+      .geo-top,
+      .mock-top{
+        display:block;
+      }
+      .geo-tabs,
+      .mock-top nav{
+        justify-content:flex-start;
+        overflow-x:auto;
+        flex-wrap:nowrap;
+        padding-bottom:4px;
+        margin-top:10px;
+      }
+      .geo-tabs span,
+      .mock-top nav span{
+        flex:0 0 auto;
+      }
+      .geo-filters,
+      .mock-filters{
+        grid-template-columns:1fr !important;
+      }
+      .geo-kpis,
+      .mock-kpis.four{
+        grid-template-columns:1fr 1fr !important;
+        padding:12px;
+        gap:10px;
+      }
+      .geo-kpi strong,
+      .mock-kpi strong{
+        font-size:24px;
+      }
+      .geo-body,
+      .geo-bottom,
+      .mock-grid.two,
+      .mock-grid.three{
+        grid-template-columns:1fr !important;
+        padding:0 12px 12px;
+      }
+      .geo-panel,
+      .mini-panel{
+        min-height:auto;
+        padding:12px;
+        border-radius:16px;
+      }
+      .geo-map{
+        min-height:280px;
+      }
+      .map-hint{
+        display:none;
+      }
+      .geo-bar-row,
+      .hbar-row{
+        grid-template-columns:96px 1fr 44px !important;
+        font-size:11px;
+      }
+      .columns,
+      .columns.small,
+      .stack-columns,
+      .multi-columns{
+        min-width:560px;
+      }
+      .mini-panel:has(.columns),
+      .mini-panel:has(.stack-columns),
+      .mini-panel:has(.multi-columns){
+        overflow-x:auto;
+      }
+      .screen-head{
+        display:block !important;
+      }
+      .screen-actions{
+        margin-top:12px;
+      }
+      .modal{
+        padding:10px !important;
+      }
+      .modal-body{
+        width:98vw !important;
+        max-height:94vh !important;
+        border-radius:22px !important;
+      }
+      .modal-content{
+        padding:10px !important;
+      }
+      footer{
+        border-radius:20px;
+        padding:16px;
+        font-size:13px;
+      }
+    }
+
+    @media(max-width:460px){
+      .kpi-grid,
+      .geo-kpis,
+      .mock-kpis.four,
+      .mobile-grid{
+        grid-template-columns:1fr !important;
+      }
+      .about-photo-wrap{
+        display:block;
+      }
+      .about-photo{
+        margin-bottom:12px;
+      }
+      .phone-shell{
+        max-width:100%;
+      }
+      .phone-screen{
+        height:690px !important;
+      }
+      .phone-appbar b{
+        font-size:20px;
+      }
+      .phone-appbar span{
+        max-width:220px;
+        overflow:hidden;
+        text-overflow:ellipsis;
+        white-space:nowrap;
+      }
+      .mobile-field span{
+        max-width:200px;
+      }
+      .geo-map{
+        min-height:250px;
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -240,10 +1863,13 @@
   <div class="progress" id="progress"></div>
   <div class="app">
     <aside>
-      <div class="brand"><span class="mark"></span><div><h1>BI Portfolio</h1><small>Operações & Analytics</small></div></div>
+      <div class="brand"><span class="mark"></span><div><h1>Solutions Portfolio</h1><small>Dados • Operações • Produto</small></div></div>
       <div class="side-search"><input id="searchInput" type="search" placeholder="Buscar tela, KPI ou processo..." /></div>
       <nav class="menu">
         <a class="active" href="#visao"><span class="icon">▦</span> Visão geral</a>
+        <a href="#sobre-mim"><span class="icon">◎</span> Sobre mim</a>
+        <a href="#operis-app"><span class="icon">▣</span> Operis App</a>
+        <a href="#mapas-operacionais"><span class="icon">⌖</span> Mapas Operacionais</a>
         <a href="#executado-backlog"><span class="icon">▤</span> Executado</a>
         <a href="#plano-gantt"><span class="icon">▥</span> Plano Gantt</a>
         <a href="#bad-actors"><span class="icon">◈</span> Bad Actors</a>
@@ -261,6 +1887,8 @@
         <button class="filter-btn" data-filter="Produtividade">Produtividade</button>
         <button class="filter-btn" data-filter="Componentes">Componentes</button>
         <button class="filter-btn" data-filter="Analítico">Analítico</button>
+        <button class="filter-btn" data-filter="Produto Digital">Produto Digital</button>
+        <button class="filter-btn" data-filter="Geoespacial">Geoespacial</button>
       </div>
 <div class="side-line"></div>
       <div class="chips"><span class="chip">Power BI</span><span class="chip">DAX</span><span class="chip">Power Query</span><span class="chip">SQL</span><span class="chip">PCM</span><span class="chip">KPIs</span></div>
@@ -269,14 +1897,14 @@
 
     <main>
       <div class="topbar">
-        <div class="headline"><small>Portfólio técnico</small><h2>Portfólio de Business Intelligence</h2></div>
+        <div class="headline"><small>Portfólio técnico</small><h2>Portfólio de Soluções</h2></div>
         <div class="toolbar"><button class="tool-btn" id="themeBtn">Tema claro</button></div>
       </div>
 
       <section class="hero-grid" id="visao">
         <div class="panel intro">
-          <h3>Business Intelligence para operação, manutenção e tomada de decisão.</h3>
-          <p>Portfólio demonstrativo com soluções de BI voltadas a indicadores operacionais, planejamento, backlog, ordens, ativos, produtividade e confiabilidade, sem exposição de logotipos institucionais ou dados sensíveis. A proposta apresenta arquitetura visual, lógica analítica e indicadores aplicados a planejamento, backlog, ordens, ativos, produtividade e confiabilidade operacional.</p>
+          <h3>Soluções digitais para operação, manutenção e tomada de decisão.</h3>
+          <p>Portfólio demonstrativo com soluções em dados, automação, aplicativos, mapas operacionais e indicadores executivos, sem exposição de logotipos institucionais ou dados sensíveis. A proposta apresenta arquitetura visual, lógica analítica e indicadores aplicados a planejamento, backlog, ordens, ativos, produtividade e confiabilidade operacional.</p>
           <div class="chips"><span class="chip">Dados anonimizados</span><span class="chip">Sem marca institucional</span><span class="chip">Projetos de BI</span><span class="chip">Visual executivo</span></div>
         </div>
         <div class="panel">
@@ -294,14 +1922,607 @@
       </section>
 
       <section class="kpi-grid">
-        <div class="kpi"><span>Projetos de BI</span><strong>9</strong><small>visual executivo</small></div>
+        <div class="kpi"><span>Projetos de BI</span><strong>13</strong><small>dashboards, app e mapas</small></div>
         <div class="kpi"><span>Confidencialidade</span><strong>100%</strong><small>dados sensíveis preservados</small></div>
         <div class="kpi"><span>Domínios</span><strong>3</strong><small>operação, manutenção e processos</small></div>
         <div class="kpi"><span>Foco</span><strong>KPI</strong><small>gestão e tomada de decisão</small></div>
       </section>
 
       
-    <article class="screen-card" id="executado-backlog" data-category="Operação" data-title="executado & backlog" data-keywords="executado & backlog visão executiva para comparar ordens executadas, backlog e plano preventivo por regional. operação">
+    
+      
+      <section class="about-section" id="sobre-mim" data-category="Sobre" data-title="sobre mim luiz gonzaga engenharia dados business intelligence power bi automação" data-keywords="sobre mim engenheiro eletricista business analytics power bi sql python pcm automação dados operação diretoria">
+        <div class="about-grid">
+          <div class="about-main">
+
+            <div class="about-photo-wrap">
+              <div class="about-photo">
+                <img src="data:image/jpeg;base64,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" alt="Foto profissional de Luiz Gonzaga" />
+              </div>
+              <div class="about-photo-caption">
+                <b>Luiz Gonzaga de Farias Neto</b>
+                <span>Engenharia, dados, automação e soluções digitais aplicadas à operação.</span>
+              </div>
+            </div>
+            <span class="about-kicker">Sobre mim</span>
+            <h2>Engenharia, dados e operação no mesmo fluxo de decisão.</h2>
+            <p>
+              Sou Engenheiro Eletricista com atuação em Soluções Digitais, operações corporativas, automação de processos e análise de indicadores. Trabalho transformando dados operacionais em painéis, relatórios executivos, diagnósticos de performance e oportunidades práticas de melhoria.
+            </p>
+            <p>
+              Minha experiência combina vivência em campo, leitura técnica de ativos e interface com liderança. Isso me permite construir soluções que não ficam apenas bonitas: elas ajudam supervisão, coordenação e gerência a enxergar backlog, produtividade, plano de manutenção, reincidência de falhas e priorização operacional.
+            </p>
+            <p>
+              Também desenvolvo projetos próprios em tecnologia, IA, automação e aplicações mobile, conectando engenharia, dados, produto e experiência do usuário.
+            </p>
+
+            <div class="about-highlight">
+              <div class="about-stat">
+                <strong>30%+</strong>
+                <span>redução de backlog operacional em projeto de melhoria com dados.</span>
+              </div>
+              <div class="about-stat">
+                <strong>BI + App</strong>
+                <span>dashboards executivos e produto mobile para operação em campo.</span>
+              </div>
+              <div class="about-stat">
+                <strong>PCM</strong>
+                <span>visão aplicada a manutenção, produtividade, ativos e confiabilidade.</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="about-side">
+            <div class="about-card">
+              <h3>Meu diferencial</h3>
+              <ul>
+                <li>Faço a ponte entre operação, dados e tomada de decisão executiva.</li>
+                <li>Tenho visão técnica de engenharia e leitura prática de processos de campo.</li>
+                <li>Construo soluções orientadas a eficiência, rastreabilidade e gestão por indicadores.</li>
+              </ul>
+            </div>
+
+            <div class="about-card">
+              <h3>Stack principal</h3>
+              <div class="about-tags">
+                <span>Power BI</span>
+                <span>DAX</span>
+                <span>Power Query</span>
+                <span>SQL</span>
+                <span>Python</span>
+                <span>SAP S/4HANA</span>
+                <span>Oracle Field Service</span>
+                <span>Kotlin</span>
+                <span>IA / LLMs</span>
+                <span>PCM</span>
+              </div>
+            </div>
+
+            <div class="about-card">
+              <h3>Foco profissional</h3>
+              <ul>
+                <li>Soluções Digitais aplicado a operações.</li>
+                <li>Automação de rotinas e relatórios.</li>
+                <li>Aplicativos e ferramentas para produtividade em campo.</li>
+                <li>Projetos com IA, cloud e integração de dados.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+<section class="product-section" id="operis-app" data-category="Produto Digital" data-title="operis aplicativo inspeções campo kotlin compose firebase room csv" data-keywords="operis app produto digital kotlin jetpack compose firebase room csv inspeções campo checklist exportação">
+        <div class="product-head">
+          <div>
+            <small>Produto digital</small>
+            <h2>Operis — aplicativo de inspeções em campo</h2>
+            <p>
+              Aplicativo mobile desenvolvido para apoiar equipes operacionais na importação de base diária de ordens, seleção de OS/ativo, execução de checklists, registro de medições, armazenamento local e exportação CSV ao fim do dia. As telas abaixo foram redesenhadas para portfólio, com dados sensíveis substituídos por informações fictícias.
+            </p>
+          </div>
+          <div class="product-badges">
+            <span>Kotlin</span>
+            <span>Jetpack Compose</span>
+            <span>Firebase Auth</span>
+            <span>Room Database</span>
+            <span>CSV Export</span>
+          </div>
+        </div>
+
+        <div class="product-layout">
+          <div class="phone-shell">
+            <div class="phone-screen">
+              <div class="phone-status">
+                <span>11:32</span>
+                <span>5G • 100%</span>
+              </div>
+
+              <div class="phone-appbar">
+                <div>
+                  <b>Operis</b>
+                  <span>usuário@empresa.com</span>
+                </div>
+                <em>Sair</em>
+              </div>
+
+              <div class="phone-content">
+                <div class="phone-page active" data-app-page="campo">
+                  <div class="mobile-hero">
+                    <h3>Operação em campo</h3>
+                    <p>Selecione empresa, município, planta e ordem de serviço para executar o checklist no aparelho.</p>
+                    <span class="mobile-pill">OS • ativos • checklists</span>
+                  </div>
+
+                  <div class="mobile-grid">
+                    <div class="mobile-metric"><span>OS carregadas</span><strong>1.875</strong><small>Base local</small></div>
+                    <div class="mobile-metric"><span>OS filtradas</span><strong>24</strong><small>Após seleção</small></div>
+                    <div class="mobile-metric"><span>Checklist</span><strong>QCM</strong><small>Carregado por ativo</small></div>
+                    <div class="mobile-metric"><span>Modo</span><strong>Local</strong><small>Salvo no aparelho</small></div>
+                  </div>
+
+                  <div class="mobile-card">
+                    <div class="mobile-card-title"><i class="mobile-dot"></i> Identificação</div>
+                    <div class="mobile-field"><div><b>Empresa</b><span>Empresa operacional</span></div><strong>⌄</strong></div>
+                    <div class="mobile-field"><div><b>Município</b><span>Município anonimizado</span></div><strong>⌄</strong></div>
+                    <div class="mobile-field"><div><b>Planta</b><span>PL-XXXX • Unidade exemplo</span></div><strong>⌄</strong></div>
+                    <div class="mobile-field"><div><b>Ordem de serviço</b><span>OS-XXXXXX</span></div><strong>⌄</strong></div>
+                  </div>
+
+                  <div class="mobile-status-card">
+                    <span class="flag">ATRASADA</span>
+                    <h4>OS-XXXXXX</h4>
+                    <p>PV ELT — Equipamento anonimizado</p>
+                    <div class="mobile-info-row"><span>Tipo</span><b>Preventiva por frequência</b></div>
+                    <div class="mobile-info-row"><span>Equipamento</span><b>Motor elétrico</b></div>
+                    <div class="mobile-info-row"><span>TAG</span><b>TAG-XXXX</b></div>
+                  </div>
+                </div>
+
+                <div class="phone-page" data-app-page="checklist">
+                  <div class="mobile-hero">
+                    <h3>Checklist técnico</h3>
+                    <p>Execução guiada por seções, itens padronizados, situação encontrada, observações e medições.</p>
+                    <span class="mobile-pill">campo • qualidade • rastreabilidade</span>
+                  </div>
+
+                  <div class="mobile-card">
+                    <div class="mobile-card-title"><i class="mobile-dot"></i> 27.123 — Terminais e conexões</div>
+                    <div class="option-grid">
+                      <div class="option selected">1 • OK</div>
+                      <div class="option">2 • Necessita reparos</div>
+                      <div class="option">3 • Necessita troca</div>
+                      <div class="option">4 • Não existe</div>
+                    </div>
+                    <div class="mobile-input">Observação</div>
+                  </div>
+
+                  <div class="mobile-card">
+                    <div class="mobile-card-title"><i class="mobile-dot"></i> 50 — Medições elétricas</div>
+                    <div class="mobile-input">Tensão AB</div>
+                    <div class="mobile-help">Use vírgula para decimal. Ex.: 13,8</div>
+                    <div class="option">Sem equipamento para medir</div>
+                    <div class="option">Sem EPI</div>
+                    <div class="option">Não aplicável</div>
+                    <div class="mobile-input">Corrente A</div>
+                    <div class="mobile-input">Horímetro</div>
+                  </div>
+
+                  <button class="mobile-btn">Salvar inspeção</button>
+                </div>
+
+                <div class="phone-page" data-app-page="salvas">
+                  <div class="mobile-hero">
+                    <h3>Inspeções salvas</h3>
+                    <p>Acompanhe os registros armazenados no aparelho antes da exportação do fim do dia.</p>
+                    <span class="mobile-pill">histórico • revisão • exclusão</span>
+                  </div>
+
+                  <p style="color:#102946;font-weight:800;margin:0 0 12px;">Total no aparelho: 2</p>
+
+                  <div class="saved-item">
+                    <h4>OS-XXXXXX • Painel elétrico</h4>
+                    <p>2026-06-26 às 16:58 • Planta anonimizada</p>
+                    <p>Salvo em: 2026-06-26 16:58:20</p>
+                    <p class="late">Limite OS: 2026-06-20 • ATRASADA</p>
+                    <button class="mobile-btn" style="width:120px;min-height:42px;margin-top:12px;">Excluir</button>
+                  </div>
+
+                  <div class="saved-item">
+                    <h4>OS-XXXXXX • Bomba centrífuga</h4>
+                    <p>2026-06-26 às 15:36 • Planta anonimizada</p>
+                    <p>Salvo em: 2026-06-26 15:36:29</p>
+                    <p class="late">Limite OS: 2026-06-22 • ATRASADA</p>
+                  </div>
+                </div>
+
+                <div class="phone-page" data-app-page="exportar">
+                  <div class="mobile-hero">
+                    <h3>Carga e envio</h3>
+                    <p>Importe a planilha diária recebida pela equipe e exporte as execuções salvas no fim do dia.</p>
+                    <span class="mobile-pill">importação • base local • CSV</span>
+                  </div>
+
+                  <div class="mobile-card">
+                    <div class="mobile-card-title"><i class="mobile-dot"></i> Base diária de ordens</div>
+                    <p style="color:#8a94a3;margin:0 0 10px;">Base atual</p>
+                    <h3 style="color:#102946;margin:0 0 10px;">1.875 ordens disponíveis</h3>
+                    <p style="color:#8a94a3;margin:0;">Origem: base importada pelo usuário</p>
+                    <p style="color:#8a94a3;font-size:12px;">Versão: 000000000000</p>
+                    <button class="mobile-btn">Substituir base pela planilha diária</button>
+                    <button class="mobile-btn green">Adicionar planilha à base atual</button>
+                    <button class="mobile-btn light">Apagar base de OS do aparelho</button>
+                  </div>
+
+                  <div class="mobile-card">
+                    <div class="mobile-card-title"><i class="mobile-dot"></i> Exportar execuções</div>
+                    <p style="color:#8a94a3;">Gere um CSV com todas as inspeções salvas na data escolhida.</p>
+                    <div class="mobile-input">2026-06-26</div>
+                    <button class="mobile-btn green">Gerar e compartilhar CSV</button>
+                  </div>
+                </div>
+
+                <div class="phone-page" data-app-page="arquitetura">
+                  <div class="mobile-hero">
+                    <h3>Arquitetura do app</h3>
+                    <p>Fluxo offline-first com autenticação, banco local, catálogos em JSON, persistência das inspeções e exportação estruturada.</p>
+                    <span class="mobile-pill">Kotlin • Compose • Room • Firebase</span>
+                  </div>
+
+                  <div class="mobile-card">
+                    <div class="mobile-card-title"><i class="mobile-dot"></i> Stack técnica</div>
+                    <div class="mobile-field"><div><b>UI</b><span>Jetpack Compose + Material 3</span></div></div>
+                    <div class="mobile-field"><div><b>Banco local</b><span>Room Database</span></div></div>
+                    <div class="mobile-field"><div><b>Login</b><span>Firebase Authentication</span></div></div>
+                    <div class="mobile-field"><div><b>Exportação</b><span>CSV estruturado para BI</span></div></div>
+                  </div>
+
+                  <div class="mobile-card">
+                    <div class="mobile-card-title"><i class="mobile-dot"></i> Valor operacional</div>
+                    <p style="color:#4b5563;line-height:1.45;margin:0;">
+                      Redução de retrabalho em campo, padronização da coleta, rastreabilidade de inspeções e exportação diária pronta para tratamento analítico.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="phone-tabs">
+                <div class="phone-tab active" data-phone-tab="campo"><i>▦</i><span>Nova</span></div>
+                <div class="phone-tab" data-phone-tab="salvas"><i>✓</i><span>Salvas</span></div>
+                <div class="phone-tab" data-phone-tab="exportar"><i>☁</i><span>Exportar</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-side">
+            <div class="product-card">
+              <h3>Navegação do app redesenhada</h3>
+              <p>
+                A demonstração ao lado reconstrói as principais jornadas do Operis com a mesma linguagem visual do portfólio: operação em campo, checklist, inspeções salvas, carga/exportação e arquitetura técnica. Os dados foram anonimizados e os identificadores reais foram substituídos.
+              </p>
+              <div class="product-actions">
+                <button class="app-tab-btn active" data-app-tab="campo">Operação</button>
+                <button class="app-tab-btn" data-app-tab="checklist">Checklist</button>
+                <button class="app-tab-btn" data-app-tab="salvas">Salvas</button>
+                <button class="app-tab-btn" data-app-tab="exportar">Exportar</button>
+                <button class="app-tab-btn" data-app-tab="arquitetura">Arquitetura</button>
+              </div>
+            </div>
+
+            <div class="product-card">
+              <h3>Problema resolvido</h3>
+              <p>
+                O app centraliza a execução de checklists em campo e reduz dependência de planilhas soltas, permitindo que a equipe trabalhe com base diária importada, salve registros localmente e gere saída estruturada para auditoria e BI.
+              </p>
+            </div>
+
+            <div class="product-card">
+              <h3>Fluxo operacional</h3>
+              <div class="flow-steps">
+                <div class="flow-step"><strong>1</strong><b>Importar</b><span>Base diária de ordens.</span></div>
+                <div class="flow-step"><strong>2</strong><b>Filtrar</b><span>Empresa, município, planta e OS.</span></div>
+                <div class="flow-step"><strong>3</strong><b>Executar</b><span>Checklist e medições.</span></div>
+                <div class="flow-step"><strong>4</strong><b>Salvar</b><span>Registro local no aparelho.</span></div>
+                <div class="flow-step"><strong>5</strong><b>Exportar</b><span>CSV para análise.</span></div>
+              </div>
+            </div>
+
+            <div class="product-card">
+              <h3>Stack e arquitetura</h3>
+              <div class="architecture-grid">
+                <div class="arch-box"><b>Kotlin</b><span>Aplicativo Android nativo.</span></div>
+                <div class="arch-box"><b>Jetpack Compose</b><span>Interface declarativa e responsiva.</span></div>
+                <div class="arch-box"><b>Room</b><span>Persistência local de inspeções.</span></div>
+                <div class="arch-box"><b>Firebase Auth</b><span>Autenticação por usuário.</span></div>
+                <div class="arch-box"><b>CSV Export</b><span>Saída estruturada para BI.</span></div>
+                <div class="arch-box"><b>JSON Catalogs</b><span>Catálogos de OS, plantas e checklists.</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+
+      <section class="geo-section" id="mapas-operacionais" data-category="Geoespacial" data-title="mapas operacionais bombeamento reserva plantas criticas almoxarifado estoque mapa interativo" data-keywords="mapas interativos geoespacial power bi bombeamento reserva plantas criticas almoxarifado estoque ativos mapa de calor operação">
+        <div class="geo-head">
+          <div>
+            <small>Soluções geoespaciais</small>
+            <h2>Mapas operacionais e cenários críticos</h2>
+            <p>
+              Soluções de BI com camada geoespacial para visualizar ativos, reservas técnicas, plantas críticas, estoque regionalizado e concentração de ordens. As telas abaixo foram redesenhadas em HTML, com mapa abstrato, dados fictícios e identidade visual do portfólio. Os mapas possuem zoom, arraste, seleção de marcadores e filtro por legenda.
+            </p>
+          </div>
+          <div class="geo-badges">
+            <span>Mapas interativos</span>
+            <span>Ativos críticos</span>
+            <span>Estoque operacional</span>
+            <span>Cenários</span>
+          </div>
+        </div>
+
+        <div class="geo-cases">
+          <article class="geo-case">
+            <div class="geo-case-head">
+              <div>
+                <h3>Bombeamento reserva | Cenário</h3>
+                <p>Mapa para leitura de equipamentos operantes, reservas frias/quentes, capacidade hidráulica e localização de reservas por planta.</p>
+              </div>
+              <mark>Reserva técnica</mark>
+            </div>
+            <div class="geo-dashboard">
+              <div class="geo-top">
+                <div class="geo-logo"><span>LG</span> Bombeamento Reserva</div>
+                <div class="geo-tabs"><span>Cenário</span><span>Mapa</span><span>Equipamentos</span><span>Reservas</span></div>
+              </div>
+              <div class="geo-filters">
+                <b>Painel de filtros</b>
+                <label>Seccional <span>Todas</span></label>
+                <label>Município <span>Todos</span></label>
+                <label>Pesquisa <span>Pesquisar ativo...</span></label>
+                <label>Status <span>Operante / reserva</span></label>
+              </div>
+              <div class="geo-kpis">
+                <div class="geo-kpi"><span>Planta</span><strong>Bomba reserva</strong></div>
+                <div class="geo-kpi"><span>Equipamento</span><strong>BHSE 50HP</strong></div>
+                <div class="geo-kpi"><span>Vazão</span><strong>10–52 m³/h</strong></div>
+                <div class="geo-kpi"><span>Pressão</span><strong>61–43 MCA</strong></div>
+              </div>
+              <div class="geo-body">
+                <div class="geo-panel">
+                  <h4>Mapa de calor operacional</h4>
+                  <div class="geo-map">
+                    
+<div class="map-shape">
+  <svg viewBox="0 0 360 420" aria-hidden="true">
+    <defs>
+      <linearGradient id="piGrad" x1="0" x2="1">
+        <stop offset="0" stop-color="#28e0b9"/>
+        <stop offset=".55" stop-color="#43d9ff"/>
+        <stop offset="1" stop-color="#8b2cff"/>
+      </linearGradient>
+    </defs>
+    <path d="M183 20 C240 33 287 61 309 108 C341 176 294 229 285 282 C276 333 302 376 257 398 C219 417 170 379 134 363 C93 344 47 350 32 311 C15 265 62 226 70 184 C77 143 47 89 87 57 C112 37 148 14 183 20Z" fill="url(#piGrad)" opacity=".84"/>
+    <path d="M185 43 C218 61 239 87 251 119 C265 156 250 190 233 215 C214 243 214 287 230 318 C242 342 238 366 211 374 C170 385 140 341 105 328 C74 316 59 294 71 260 C87 214 118 189 116 149 C114 103 132 52 185 43Z" fill="rgba(255,255,255,.10)" stroke="rgba(255,255,255,.35)" stroke-width="2"/>
+    <path d="M92 239 L260 89 M75 305 L252 195 M138 52 L227 374 M55 161 L297 288" stroke="rgba(255,255,255,.18)" stroke-width="2"/>
+  </svg>
+</div>
+
+                    <i class="map-marker" style="--x:62%;--y:18%;--c:#2bd66f"></i>
+                    <i class="map-marker" style="--x:58%;--y:24%;--c:#43d9ff"></i>
+                    <i class="map-marker" style="--x:69%;--y:29%;--c:#ff4d6d"></i>
+                    <i class="map-marker" style="--x:54%;--y:35%;--c:#f4c95d"></i>
+                    <i class="map-marker" style="--x:44%;--y:44%;--c:#2bd66f"></i>
+                    <i class="map-marker" style="--x:49%;--y:55%;--c:#43d9ff"></i>
+                    <i class="map-marker" style="--x:57%;--y:68%;--c:#8b2cff"></i>
+                    <i class="map-marker" style="--x:43%;--y:74%;--c:#ff4d6d"></i>
+                    <div class="map-legend">
+                      <span><i style="--c:#2bd66f"></i>Operante</span>
+                      <span><i style="--c:#43d9ff"></i>Reserva fria</span>
+                      <span><i style="--c:#f4c95d"></i>Reserva quente</span>
+                      <span><i style="--c:#ff4d6d"></i>Desconhecido</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="geo-panel">
+                  <h4>Status — equipamentos</h4>
+                  <table class="geo-table">
+                    <thead><tr><th>Planta</th><th>Equipamento</th><th>Status</th><th>Reserva</th></tr></thead>
+                    <tbody>
+                      <tr><td>PL-XXXX</td><td>BHSE 50HP</td><td>Operante</td><td>-</td></tr>
+                      <tr><td>PL-XXXX</td><td>BHS 10HP</td><td>Operante</td><td>Reserva fria</td></tr>
+                      <tr><td>PL-XXXX</td><td>BHSE 35HP</td><td>Operante</td><td>-</td></tr>
+                      <tr><td>PL-XXXX</td><td>BHS 20HP</td><td>Reserva</td><td>Quente</td></tr>
+                      <tr><td>PL-XXXX</td><td>BHSE 40HP</td><td>Desconhecido</td><td>-</td></tr>
+                      <tr><td>PL-XXXX</td><td>Bomba 15HP</td><td>Operante</td><td>-</td></tr>
+                      <tr><td>PL-XXXX</td><td>Conjunto reserva</td><td>Operante</td><td>Estoque</td></tr>
+                      <tr><td>PL-XXXX</td><td>BHSE 60HP</td><td>Operante</td><td>-</td></tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="geo-case">
+            <div class="geo-case-head">
+              <div>
+                <h3>Inventário geográfico de ativos e almoxarifados</h3>
+                <p>Visão combinada de mapa de ativos, distribuição territorial e estoque por planta, tipo de equipamento e fabricante/modelo.</p>
+              </div>
+              <mark>Ativos + estoque</mark>
+            </div>
+            <div class="geo-dashboard">
+              <div class="geo-top">
+                <div class="geo-logo"><span>LG</span> Inventário Operacional</div>
+                <div class="geo-tabs"><span>Ativos</span><span>Mapa</span><span>Estoque</span><span>Almoxarifados</span></div>
+              </div>
+              <div class="geo-filters">
+                <b>Painel de filtros</b>
+                <label>Tipo de planta <span>Todos</span></label>
+                <label>Município <span>Todos</span></label>
+                <label>Pesquisa <span>Pesquisar item...</span></label>
+                <label>Tipo <span>Bomba / motor</span></label>
+              </div>
+              <div class="geo-kpis">
+                <div class="geo-kpi"><span>Plantas</span><strong>148</strong></div>
+                <div class="geo-kpi"><span>Ativos</span><strong>2.860</strong></div>
+                <div class="geo-kpi"><span>Itens em estoque</span><strong>312</strong></div>
+                <div class="geo-kpi"><span>Cobertura</span><strong>87%</strong></div>
+              </div>
+              <div class="geo-body">
+                <div class="geo-panel">
+                  <h4>Mapa de ativos</h4>
+                  <div class="geo-map">
+                    
+<div class="map-shape">
+  <svg viewBox="0 0 360 420" aria-hidden="true">
+    <defs>
+      <linearGradient id="piGrad" x1="0" x2="1">
+        <stop offset="0" stop-color="#28e0b9"/>
+        <stop offset=".55" stop-color="#43d9ff"/>
+        <stop offset="1" stop-color="#8b2cff"/>
+      </linearGradient>
+    </defs>
+    <path d="M183 20 C240 33 287 61 309 108 C341 176 294 229 285 282 C276 333 302 376 257 398 C219 417 170 379 134 363 C93 344 47 350 32 311 C15 265 62 226 70 184 C77 143 47 89 87 57 C112 37 148 14 183 20Z" fill="url(#piGrad)" opacity=".84"/>
+    <path d="M185 43 C218 61 239 87 251 119 C265 156 250 190 233 215 C214 243 214 287 230 318 C242 342 238 366 211 374 C170 385 140 341 105 328 C74 316 59 294 71 260 C87 214 118 189 116 149 C114 103 132 52 185 43Z" fill="rgba(255,255,255,.10)" stroke="rgba(255,255,255,.35)" stroke-width="2"/>
+    <path d="M92 239 L260 89 M75 305 L252 195 M138 52 L227 374 M55 161 L297 288" stroke="rgba(255,255,255,.18)" stroke-width="2"/>
+  </svg>
+</div>
+
+                    <i class="map-marker big" style="--x:61%;--y:18%;--c:#28e0b9">32</i>
+                    <i class="map-marker big" style="--x:55%;--y:28%;--c:#43d9ff">18</i>
+                    <i class="map-marker big" style="--x:65%;--y:36%;--c:#28e0b9">44</i>
+                    <i class="map-marker big" style="--x:47%;--y:47%;--c:#8b2cff">27</i>
+                    <i class="map-marker big" style="--x:55%;--y:61%;--c:#43d9ff">21</i>
+                    <i class="map-marker big" style="--x:41%;--y:74%;--c:#28e0b9">16</i>
+                    <div class="map-legend">
+                      <span><i style="--c:#28e0b9"></i>Bomba</span>
+                      <span><i style="--c:#43d9ff"></i>Motor</span>
+                      <span><i style="--c:#8b2cff"></i>Painel</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="geo-panel">
+                  <h4>Estoque | almoxarifados</h4>
+                  <table class="geo-table">
+                    <thead><tr><th>Planta</th><th>Tipo</th><th>Modelo</th><th>Qtd.</th></tr></thead>
+                    <tbody>
+                      <tr><td>PL-A</td><td>Bomba centrífuga</td><td>Modelo A</td><td>32</td></tr>
+                      <tr><td>PL-A</td><td>Motor elétrico</td><td>Premium</td><td>22</td></tr>
+                      <tr><td>PL-B</td><td>Bomba submersa</td><td>Modelo B</td><td>18</td></tr>
+                      <tr><td>PL-C</td><td>Motor elétrico</td><td>Modelo C</td><td>16</td></tr>
+                      <tr><td>PL-D</td><td>Bomba centrífuga</td><td>Modelo D</td><td>13</td></tr>
+                      <tr><td>PL-E</td><td>Painel comando</td><td>Modelo E</td><td>8</td></tr>
+                      <tr><td>PL-F</td><td>Motor elétrico</td><td>Modelo F</td><td>5</td></tr>
+                      <tr><td>PL-G</td><td>Bomba reserva</td><td>Modelo G</td><td>4</td></tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="geo-case">
+            <div class="geo-case-head">
+              <div>
+                <h3>Plantas críticas | cenário executivo</h3>
+                <p>Dashboard para priorização de unidades críticas por condição operacional média, ordens encerradas, consumo energético e bad actors.</p>
+              </div>
+              <mark>Criticidade</mark>
+            </div>
+            <div class="geo-dashboard">
+              <div class="geo-top">
+                <div class="geo-logo"><span>LG</span> Plantas Críticas</div>
+                <div class="geo-tabs"><span>Cenário</span><span>Ordens</span><span>Consumo</span><span>Bad Actors</span></div>
+              </div>
+              <div class="geo-filters">
+                <b>Painel de filtros</b>
+                <label>Data <span>Período selecionado</span></label>
+                <label>Base <span>Regional A</span></label>
+                <label>Município <span>Todos</span></label>
+                <label>Tipo de ordem <span>Múltiplas</span></label>
+              </div>
+              <div class="geo-kpis">
+                <div class="geo-kpi"><span>Condição média</span><strong>58,34</strong></div>
+                <div class="geo-kpi"><span>Ordens encerradas</span><strong>329</strong></div>
+                <div class="geo-kpi"><span>Plantas críticas</span><strong>12</strong></div>
+                <div class="geo-kpi"><span>Consumo alvo</span><strong>242kW</strong></div>
+              </div>
+              <div class="geo-body">
+                <div class="geo-panel">
+                  <h4>Mapa de calor crítico</h4>
+                  <div class="geo-map">
+                    
+<div class="map-shape">
+  <svg viewBox="0 0 360 420" aria-hidden="true">
+    <defs>
+      <linearGradient id="piGrad" x1="0" x2="1">
+        <stop offset="0" stop-color="#28e0b9"/>
+        <stop offset=".55" stop-color="#43d9ff"/>
+        <stop offset="1" stop-color="#8b2cff"/>
+      </linearGradient>
+    </defs>
+    <path d="M183 20 C240 33 287 61 309 108 C341 176 294 229 285 282 C276 333 302 376 257 398 C219 417 170 379 134 363 C93 344 47 350 32 311 C15 265 62 226 70 184 C77 143 47 89 87 57 C112 37 148 14 183 20Z" fill="url(#piGrad)" opacity=".84"/>
+    <path d="M185 43 C218 61 239 87 251 119 C265 156 250 190 233 215 C214 243 214 287 230 318 C242 342 238 366 211 374 C170 385 140 341 105 328 C74 316 59 294 71 260 C87 214 118 189 116 149 C114 103 132 52 185 43Z" fill="rgba(255,255,255,.10)" stroke="rgba(255,255,255,.35)" stroke-width="2"/>
+    <path d="M92 239 L260 89 M75 305 L252 195 M138 52 L227 374 M55 161 L297 288" stroke="rgba(255,255,255,.18)" stroke-width="2"/>
+  </svg>
+</div>
+
+                    <i class="map-marker big" style="--x:56%;--y:31%;--c:#ff4d6d">!</i>
+                    <i class="map-marker big" style="--x:48%;--y:43%;--c:#f4c95d">9</i>
+                    <i class="map-marker big" style="--x:63%;--y:51%;--c:#2bd66f">✓</i>
+                    <i class="map-marker big" style="--x:44%;--y:62%;--c:#ff4d6d">!</i>
+                    <i class="map-marker big" style="--x:57%;--y:73%;--c:#f4c95d">6</i>
+                    <div class="map-legend">
+                      <span><i style="--c:#ff4d6d"></i>Crítico</span>
+                      <span><i style="--c:#f4c95d"></i>Atenção</span>
+                      <span><i style="--c:#2bd66f"></i>Controlado</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="geo-panel">
+                  <h4>Ordens e atributos</h4>
+                  <table class="geo-table">
+                    <thead><tr><th>Planta</th><th>Ordem</th><th>Equipamento</th><th>Status</th></tr></thead>
+                    <tbody>
+                      <tr><td>PL-XXXX</td><td>OS-XXXXXX</td><td>Bomba horizontal</td><td>Encerrada</td></tr>
+                      <tr><td>PL-XXXX</td><td>OS-XXXXXX</td><td>Painel elétrico</td><td>Encerrada</td></tr>
+                      <tr><td>PL-XXXX</td><td>OS-XXXXXX</td><td>Motor elétrico</td><td>Pendente</td></tr>
+                      <tr><td>PL-XXXX</td><td>OS-XXXXXX</td><td>Compressor</td><td>Encerrada</td></tr>
+                      <tr><td>PL-XXXX</td><td>OS-XXXXXX</td><td>Válvula</td><td>Em análise</td></tr>
+                      <tr><td>PL-XXXX</td><td>OS-XXXXXX</td><td>Bomba anfíbia</td><td>Encerrada</td></tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="geo-bottom">
+                <div class="geo-panel" style="min-height:220px;">
+                  <h4>Consumo energético mensal</h4>
+                  <div class="geo-bars">
+                    <div class="geo-bar-row"><span>Planta A</span><div class="geo-track"><i style="width:96%"></i></div><b>242k</b></div>
+                    <div class="geo-bar-row"><span>Planta B</span><div class="geo-track"><i style="width:42%"></i></div><b>81k</b></div>
+                    <div class="geo-bar-row"><span>Planta C</span><div class="geo-track"><i style="width:31%"></i></div><b>53k</b></div>
+                    <div class="geo-bar-row"><span>Planta D</span><div class="geo-track"><i style="width:24%"></i></div><b>35k</b></div>
+                  </div>
+                </div>
+                <div class="geo-panel" style="min-height:220px;">
+                  <h4>Bad actors</h4>
+                  <div class="geo-bars">
+                    <div class="geo-bar-row"><span>Ativo A</span><div class="geo-track"><i class="hot" style="width:92%"></i></div><b>36</b></div>
+                    <div class="geo-bar-row"><span>Ativo B</span><div class="geo-track"><i class="hot" style="width:68%"></i></div><b>24</b></div>
+                    <div class="geo-bar-row"><span>Ativo C</span><div class="geo-track"><i class="hot" style="width:60%"></i></div><b>21</b></div>
+                    <div class="geo-bar-row"><span>Ativo D</span><div class="geo-track"><i class="hot" style="width:39%"></i></div><b>10</b></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+
+<article class="screen-card" id="executado-backlog" data-category="Operação" data-title="executado & backlog" data-keywords="executado & backlog visão executiva para comparar ordens executadas, backlog e plano preventivo por regional. operação">
       <div class="screen-head">
         <div>
           <span class="screen-kicker">Operação</span>
@@ -472,7 +2693,7 @@
     </div></div></div></div>
         <div class="mock-footer">
           <span>Portfólio demonstrativo</span>
-          <span>Portfólio técnico de BI operacional</span>
+          <span>Portfólio técnico de soluções operacionais</span>
           <span>Confidencialidade preservada</span>
         </div>
       </div>
@@ -505,7 +2726,7 @@
     <div class="gantt-wrap"><div class="timeline"><span>Jan 07</span><span>Jan 14</span><span>Jan 21</span><span>Jan 28</span><span>Fev 04</span><span>Fev 11</span></div><div class="gantt-row"><b>Ativo 001</b><div class="gantt-track"><i class="green" style="left:7%;width:44%"></i></div><em>Serviço programado</em></div><div class="gantt-row"><b>Ativo 002</b><div class="gantt-track"><i class="" style="left:12%;width:64%"></i></div><em>Serviço programado</em></div><div class="gantt-row"><b>Ativo 003</b><div class="gantt-track"><i class="purple" style="left:3%;width:80%"></i></div><em>Serviço programado</em></div><div class="gantt-row"><b>Ativo 004</b><div class="gantt-track"><i class="green" style="left:18%;width:48%"></i></div><em>Serviço programado</em></div><div class="gantt-row"><b>Ativo 005</b><div class="gantt-track"><i class="" style="left:34%;width:38%"></i></div><em>Serviço programado</em></div><div class="gantt-row"><b>Ativo 006</b><div class="gantt-track"><i class="purple" style="left:46%;width:42%"></i></div><em>Serviço programado</em></div><div class="gantt-row"><b>Ativo 007</b><div class="gantt-track"><i class="green" style="left:55%;width:36%"></i></div><em>Serviço programado</em></div><div class="gantt-row"><b>Ativo 008</b><div class="gantt-track"><i class="" style="left:4%;width:62%"></i></div><em>Serviço programado</em></div><div class="gantt-row"><b>Ativo 009</b><div class="gantt-track"><i class="green" style="left:28%;width:54%"></i></div><em>Serviço programado</em></div></div>
         <div class="mock-footer">
           <span>Portfólio demonstrativo</span>
-          <span>Portfólio técnico de BI operacional</span>
+          <span>Portfólio técnico de soluções operacionais</span>
           <span>Confidencialidade preservada</span>
         </div>
       </div>
@@ -658,7 +2879,7 @@
     </div></div></div></div>
         <div class="mock-footer">
           <span>Portfólio demonstrativo</span>
-          <span>Portfólio técnico de BI operacional</span>
+          <span>Portfólio técnico de soluções operacionais</span>
           <span>Confidencialidade preservada</span>
         </div>
       </div>
@@ -841,7 +3062,7 @@
     </div></div></div></div>
         <div class="mock-footer">
           <span>Portfólio demonstrativo</span>
-          <span>Portfólio técnico de BI operacional</span>
+          <span>Portfólio técnico de soluções operacionais</span>
           <span>Confidencialidade preservada</span>
         </div>
       </div>
@@ -874,7 +3095,7 @@
     <div class="mock-grid three"><div class="mini-panel "><h4>Regional A</h4><div class="stack-columns"><div class="stack-col"><b>146h</b><div class="stackbar" style="height:100%"><i style="height:32%"></i><u style="height:68%"></u></div><span>Eq.01</span></div><div class="stack-col"><b>132h</b><div class="stackbar" style="height:90%"><i style="height:32%"></i><u style="height:68%"></u></div><span>Eq.02</span></div><div class="stack-col"><b>119h</b><div class="stackbar" style="height:82%"><i style="height:32%"></i><u style="height:68%"></u></div><span>Eq.03</span></div><div class="stack-col"><b>105h</b><div class="stackbar" style="height:72%"><i style="height:32%"></i><u style="height:68%"></u></div><span>Eq.04</span></div><div class="stack-col"><b>95h</b><div class="stackbar" style="height:95%"><i style="height:32%"></i><u style="height:68%"></u></div><span>Eq.05</span></div><div class="stack-col"><b>81h</b><div class="stackbar" style="height:100%"><i style="height:32%"></i><u style="height:68%"></u></div><span>Eq.06</span></div></div><div class="legend-mini"><span><i></i>Deslocamento</span><span><u></u>Execução</span></div></div><div class="mini-panel "><h4>Regional B</h4><div class="stack-columns"><div class="stack-col"><b>146h</b><div class="stackbar" style="height:100%"><i style="height:32%"></i><u style="height:68%"></u></div><span>Eq.01</span></div><div class="stack-col"><b>132h</b><div class="stackbar" style="height:90%"><i style="height:32%"></i><u style="height:68%"></u></div><span>Eq.02</span></div><div class="stack-col"><b>119h</b><div class="stackbar" style="height:82%"><i style="height:32%"></i><u style="height:68%"></u></div><span>Eq.03</span></div><div class="stack-col"><b>105h</b><div class="stackbar" style="height:72%"><i style="height:32%"></i><u style="height:68%"></u></div><span>Eq.04</span></div><div class="stack-col"><b>95h</b><div class="stackbar" style="height:95%"><i style="height:32%"></i><u style="height:68%"></u></div><span>Eq.05</span></div><div class="stack-col"><b>81h</b><div class="stackbar" style="height:100%"><i style="height:32%"></i><u style="height:68%"></u></div><span>Eq.06</span></div></div><div class="legend-mini"><span><i></i>Deslocamento</span><span><u></u>Execução</span></div></div><div class="mini-panel "><h4>Regional C</h4><div class="stack-columns"><div class="stack-col"><b>146h</b><div class="stackbar" style="height:100%"><i style="height:32%"></i><u style="height:68%"></u></div><span>Eq.01</span></div><div class="stack-col"><b>132h</b><div class="stackbar" style="height:90%"><i style="height:32%"></i><u style="height:68%"></u></div><span>Eq.02</span></div><div class="stack-col"><b>119h</b><div class="stackbar" style="height:82%"><i style="height:32%"></i><u style="height:68%"></u></div><span>Eq.03</span></div><div class="stack-col"><b>105h</b><div class="stackbar" style="height:72%"><i style="height:32%"></i><u style="height:68%"></u></div><span>Eq.04</span></div><div class="stack-col"><b>95h</b><div class="stackbar" style="height:95%"><i style="height:32%"></i><u style="height:68%"></u></div><span>Eq.05</span></div><div class="stack-col"><b>81h</b><div class="stackbar" style="height:100%"><i style="height:32%"></i><u style="height:68%"></u></div><span>Eq.06</span></div></div><div class="legend-mini"><span><i></i>Deslocamento</span><span><u></u>Execução</span></div></div><div class="mini-panel "><h4>Regional D</h4><div class="stack-columns"><div class="stack-col"><b>146h</b><div class="stackbar" style="height:100%"><i style="height:32%"></i><u style="height:68%"></u></div><span>Eq.01</span></div><div class="stack-col"><b>132h</b><div class="stackbar" style="height:90%"><i style="height:32%"></i><u style="height:68%"></u></div><span>Eq.02</span></div><div class="stack-col"><b>119h</b><div class="stackbar" style="height:82%"><i style="height:32%"></i><u style="height:68%"></u></div><span>Eq.03</span></div><div class="stack-col"><b>105h</b><div class="stackbar" style="height:72%"><i style="height:32%"></i><u style="height:68%"></u></div><span>Eq.04</span></div><div class="stack-col"><b>95h</b><div class="stackbar" style="height:95%"><i style="height:32%"></i><u style="height:68%"></u></div><span>Eq.05</span></div><div class="stack-col"><b>81h</b><div class="stackbar" style="height:100%"><i style="height:32%"></i><u style="height:68%"></u></div><span>Eq.06</span></div></div><div class="legend-mini"><span><i></i>Deslocamento</span><span><u></u>Execução</span></div></div><div class="mini-panel "><h4>Regional E</h4><div class="stack-columns"><div class="stack-col"><b>146h</b><div class="stackbar" style="height:100%"><i style="height:32%"></i><u style="height:68%"></u></div><span>Eq.01</span></div><div class="stack-col"><b>132h</b><div class="stackbar" style="height:90%"><i style="height:32%"></i><u style="height:68%"></u></div><span>Eq.02</span></div><div class="stack-col"><b>119h</b><div class="stackbar" style="height:82%"><i style="height:32%"></i><u style="height:68%"></u></div><span>Eq.03</span></div><div class="stack-col"><b>105h</b><div class="stackbar" style="height:72%"><i style="height:32%"></i><u style="height:68%"></u></div><span>Eq.04</span></div><div class="stack-col"><b>95h</b><div class="stackbar" style="height:95%"><i style="height:32%"></i><u style="height:68%"></u></div><span>Eq.05</span></div><div class="stack-col"><b>81h</b><div class="stackbar" style="height:100%"><i style="height:32%"></i><u style="height:68%"></u></div><span>Eq.06</span></div></div><div class="legend-mini"><span><i></i>Deslocamento</span><span><u></u>Execução</span></div></div><div class="mini-panel "><h4>Regional F</h4><div class="stack-columns"><div class="stack-col"><b>146h</b><div class="stackbar" style="height:100%"><i style="height:32%"></i><u style="height:68%"></u></div><span>Eq.01</span></div><div class="stack-col"><b>132h</b><div class="stackbar" style="height:90%"><i style="height:32%"></i><u style="height:68%"></u></div><span>Eq.02</span></div><div class="stack-col"><b>119h</b><div class="stackbar" style="height:82%"><i style="height:32%"></i><u style="height:68%"></u></div><span>Eq.03</span></div><div class="stack-col"><b>105h</b><div class="stackbar" style="height:72%"><i style="height:32%"></i><u style="height:68%"></u></div><span>Eq.04</span></div><div class="stack-col"><b>95h</b><div class="stackbar" style="height:95%"><i style="height:32%"></i><u style="height:68%"></u></div><span>Eq.05</span></div><div class="stack-col"><b>81h</b><div class="stackbar" style="height:100%"><i style="height:32%"></i><u style="height:68%"></u></div><span>Eq.06</span></div></div><div class="legend-mini"><span><i></i>Deslocamento</span><span><u></u>Execução</span></div></div></div>
         <div class="mock-footer">
           <span>Portfólio demonstrativo</span>
-          <span>Portfólio técnico de BI operacional</span>
+          <span>Portfólio técnico de soluções operacionais</span>
           <span>Confidencialidade preservada</span>
         </div>
       </div>
@@ -1267,7 +3488,7 @@
         </div></div></div></div>
         <div class="mock-footer">
           <span>Portfólio demonstrativo</span>
-          <span>Portfólio técnico de BI operacional</span>
+          <span>Portfólio técnico de soluções operacionais</span>
           <span>Confidencialidade preservada</span>
         </div>
       </div>
@@ -1321,7 +3542,7 @@
       <strong>14</strong>
       <small>implantação técnica</small>
       
-    </div></div><div class="mock-grid two"><div class="mini-panel "><h4>Substituições de bomba</h4><table class="mock-table"><thead><tr><th>Ordem</th><th>Texto curto</th><th>Base</th></tr></thead><tbody><tr><td>OS-001</td><td>Substituição de bomba</td><td>Regional A</td></tr><tr><td>OS-002</td><td>Substituição conjunto</td><td>Regional B</td></tr><tr><td>OS-003</td><td>Troca preventiva</td><td>Regional C</td></tr><tr><td>OS-004</td><td>Substituição emergencial</td><td>Regional D</td></tr></tbody></table></div><div class="mini-panel "><h4>Instalações de bomba</h4><table class="mock-table"><thead><tr><th>Ordem</th><th>Texto curto</th><th>Base</th></tr></thead><tbody><tr><td>OS-011</td><td>Instalação de bomba</td><td>Regional A</td></tr><tr><td>OS-012</td><td>Instalação captação</td><td>Regional B</td></tr><tr><td>OS-013</td><td>Instalação booster</td><td>Regional C</td></tr><tr><td>OS-014</td><td>Instalação reserva</td><td>Regional D</td></tr></tbody></table></div><div class="mini-panel "><h4>Substituições por base</h4><div class="columns small">
+    </div></div><div class="mock-grid two"><div class="mini-panel "><h4>Substituições de bomba</h4><table class="mock-table"><thead><tr><th>Ordem</th><th>Texto curto</th><th>Base</th></tr></thead><tbody><tr><td>OS-XXXXXX</td><td>Substituição de bomba</td><td>Regional A</td></tr><tr><td>OS-XXXXXX</td><td>Substituição conjunto</td><td>Regional B</td></tr><tr><td>OS-XXXXXX</td><td>Troca preventiva</td><td>Regional C</td></tr><tr><td>OS-XXXXXX</td><td>Substituição emergencial</td><td>Regional D</td></tr></tbody></table></div><div class="mini-panel "><h4>Instalações de bomba</h4><table class="mock-table"><thead><tr><th>Ordem</th><th>Texto curto</th><th>Base</th></tr></thead><tbody><tr><td>OS-XXXXXX</td><td>Instalação de bomba</td><td>Regional A</td></tr><tr><td>OS-XXXXXX</td><td>Instalação captação</td><td>Regional B</td></tr><tr><td>OS-XXXXXX</td><td>Instalação booster</td><td>Regional C</td></tr><tr><td>OS-XXXXXX</td><td>Instalação reserva</td><td>Regional D</td></tr></tbody></table></div><div class="mini-panel "><h4>Substituições por base</h4><div class="columns small">
     <div class="bar-col">
       <b>35</b>
       <i class="" style="height:88%"></i>
@@ -1374,7 +3595,7 @@
     </div></div></div></div>
         <div class="mock-footer">
           <span>Portfólio demonstrativo</span>
-          <span>Portfólio técnico de BI operacional</span>
+          <span>Portfólio técnico de soluções operacionais</span>
           <span>Confidencialidade preservada</span>
         </div>
       </div>
@@ -1541,7 +3762,7 @@
     </div></div></div></div>
         <div class="mock-footer">
           <span>Portfólio demonstrativo</span>
-          <span>Portfólio técnico de BI operacional</span>
+          <span>Portfólio técnico de soluções operacionais</span>
           <span>Confidencialidade preservada</span>
         </div>
       </div>
@@ -1571,10 +3792,10 @@
           <label>Município <span>Todos</span></label>
           <label>Planta <span>Anonimizada</span></label>
         </div>
-    <div class="mock-grid one"><div class="mini-panel table-panel"><h4>Ordens gerais - analítico</h4><table class="mock-table"><thead><tr><th>Data</th><th>Texto breve</th><th>Equipamento</th><th>Base</th></tr></thead><tbody><tr><td>2026-01</td><td>Ordem operacional anonimizada</td><td>Equipamento A</td><td>Regional A</td></tr><tr><td>2026-01</td><td>Ordem preventiva anonimizada</td><td>Equipamento B</td><td>Regional B</td></tr><tr><td>2026-02</td><td>Ordem corretiva anonimizada</td><td>Equipamento C</td><td>Regional C</td></tr><tr><td>2026-02</td><td>Ordem de inspeção anonimizada</td><td>Equipamento D</td><td>Regional D</td></tr></tbody></table></div><div class="mini-panel table-panel"><h4>Apontamentos de horas - analítico</h4><table class="mock-table"><thead><tr><th>Ordem</th><th>Operação</th><th>Status</th><th>Horas</th></tr></thead><tbody><tr><td>OS-001</td><td>Execução técnica</td><td>Trabalhando</td><td>2,40h</td></tr><tr><td>OS-002</td><td>Deslocamento</td><td>Concluído</td><td>0,80h</td></tr><tr><td>OS-003</td><td>Inspeção</td><td>Trabalhando</td><td>1,25h</td></tr><tr><td>OS-004</td><td>Manutenção corretiva</td><td>Concluído</td><td>3,10h</td></tr></tbody></table></div><div class="mini-panel table-panel"><h4>Itens, causas e medidas - analítico</h4><table class="mock-table"><thead><tr><th>Tipo</th><th>Item</th><th>Causa</th><th>Medida</th></tr></thead><tbody><tr><td>Corretiva</td><td>Motor</td><td>Sobrecarga</td><td>Substituição</td></tr><tr><td>Preventiva</td><td>Painel</td><td>Inspeção</td><td>Ajuste técnico</td></tr><tr><td>Emergencial</td><td>Comando</td><td>Falha elétrica</td><td>Reparo imediato</td></tr><tr><td>Programada</td><td>Bomba</td><td>Vazamento</td><td>Envio para reparo</td></tr></tbody></table></div></div>
+    <div class="mock-grid one"><div class="mini-panel table-panel"><h4>Ordens gerais - analítico</h4><table class="mock-table"><thead><tr><th>Data</th><th>Texto breve</th><th>Equipamento</th><th>Base</th></tr></thead><tbody><tr><td>2026-01</td><td>Ordem operacional anonimizada</td><td>Equipamento A</td><td>Regional A</td></tr><tr><td>2026-01</td><td>Ordem preventiva anonimizada</td><td>Equipamento B</td><td>Regional B</td></tr><tr><td>2026-02</td><td>Ordem corretiva anonimizada</td><td>Equipamento C</td><td>Regional C</td></tr><tr><td>2026-02</td><td>Ordem de inspeção anonimizada</td><td>Equipamento D</td><td>Regional D</td></tr></tbody></table></div><div class="mini-panel table-panel"><h4>Apontamentos de horas - analítico</h4><table class="mock-table"><thead><tr><th>Ordem</th><th>Operação</th><th>Status</th><th>Horas</th></tr></thead><tbody><tr><td>OS-XXXXXX</td><td>Execução técnica</td><td>Trabalhando</td><td>2,40h</td></tr><tr><td>OS-XXXXXX</td><td>Deslocamento</td><td>Concluído</td><td>0,80h</td></tr><tr><td>OS-XXXXXX</td><td>Inspeção</td><td>Trabalhando</td><td>1,25h</td></tr><tr><td>OS-XXXXXX</td><td>Manutenção corretiva</td><td>Concluído</td><td>3,10h</td></tr></tbody></table></div><div class="mini-panel table-panel"><h4>Itens, causas e medidas - analítico</h4><table class="mock-table"><thead><tr><th>Tipo</th><th>Item</th><th>Causa</th><th>Medida</th></tr></thead><tbody><tr><td>Corretiva</td><td>Motor</td><td>Sobrecarga</td><td>Substituição</td></tr><tr><td>Preventiva</td><td>Painel</td><td>Inspeção</td><td>Ajuste técnico</td></tr><tr><td>Emergencial</td><td>Comando</td><td>Falha elétrica</td><td>Reparo imediato</td></tr><tr><td>Programada</td><td>Bomba</td><td>Vazamento</td><td>Envio para reparo</td></tr></tbody></table></div></div>
         <div class="mock-footer">
           <span>Portfólio demonstrativo</span>
-          <span>Portfólio técnico de BI operacional</span>
+          <span>Portfólio técnico de soluções operacionais</span>
           <span>Confidencialidade preservada</span>
         </div>
       </div>
@@ -1582,7 +3803,7 @@
     
 
       <footer>
-        <div><b>Luiz Gonzaga de Farias Neto</b><br />Data Analytics | Power BI | Engenharia & Processos</div>
+        <div><b>Luiz Gonzaga de Farias Neto</b><br />Soluções Digitais | Dados | Engenharia & Processos</div>
         <div>Teresina, PI<br />+55 (86) 99803-5364 • luizgonzntx@gmail.com • linkedin.com/in/luizgonzntx</div>
       </footer>
     </main>
@@ -1597,7 +3818,7 @@
 
   <script>
     const root = document.documentElement;
-    const cards = [...document.querySelectorAll('.screen-card')];
+    const cards = [...document.querySelectorAll('.screen-card, .product-section, .about-section, .geo-section')];
     const searchInput = document.getElementById('searchInput');
     const filterButtons = [...document.querySelectorAll('.filter-btn')];
     const modal = document.getElementById('modal');
@@ -1687,6 +3908,172 @@
         el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
       });
     }
+
+
+    // Operis app demo navigation
+    function setOperisPage(page) {
+      document.querySelectorAll('[data-app-page]').forEach(el => {
+        el.classList.toggle('active', el.dataset.appPage === page);
+      });
+      document.querySelectorAll('[data-app-tab]').forEach(el => {
+        el.classList.toggle('active', el.dataset.appTab === page);
+      });
+      document.querySelectorAll('[data-phone-tab]').forEach(el => {
+        el.classList.toggle('active', el.dataset.phoneTab === page);
+      });
+    }
+
+    document.querySelectorAll('[data-app-tab]').forEach(btn => {
+      btn.addEventListener('click', () => setOperisPage(btn.dataset.appTab));
+    });
+
+    document.querySelectorAll('[data-phone-tab]').forEach(btn => {
+      btn.addEventListener('click', () => setOperisPage(btn.dataset.phoneTab));
+    });
+
+
+    // Mapas operacionais: zoom, pan, reset, tooltip e filtro por legenda
+    function initInteractiveMaps() {
+      const maps = document.querySelectorAll('.geo-map');
+
+      maps.forEach((map, mapIndex) => {
+        if (map.dataset.ready === '1') return;
+        map.dataset.ready = '1';
+
+        const layer = document.createElement('div');
+        layer.className = 'map-layer';
+
+        [...map.children].forEach(child => {
+          if (!child.classList.contains('map-legend')) {
+            layer.appendChild(child);
+          }
+        });
+        map.prepend(layer);
+
+        const controls = document.createElement('div');
+        controls.className = 'map-controls';
+        controls.innerHTML = '<button type="button" data-map-action="zoom-in">+</button><button type="button" data-map-action="zoom-out">−</button><button type="button" data-map-action="reset">⌂</button>';
+        map.appendChild(controls);
+
+        const hint = document.createElement('div');
+        hint.className = 'map-hint';
+        hint.textContent = 'Arraste • zoom • clique nos pontos';
+        map.appendChild(hint);
+
+        const tooltip = document.createElement('div');
+        tooltip.className = 'map-tooltip';
+        tooltip.innerHTML = '<strong>Ativo operacional</strong><span>Status anonimizado.</span>';
+        map.appendChild(tooltip);
+
+        const state = { scale: 1, x: 0, y: 0, dragging: false, sx: 0, sy: 0, ox: 0, oy: 0 };
+
+        function applyTransform() {
+          state.scale = Math.max(0.72, Math.min(2.7, state.scale));
+          layer.style.transform = `translate(${state.x}px, ${state.y}px) scale(${state.scale})`;
+        }
+
+        function resetMap() {
+          state.scale = 1;
+          state.x = 0;
+          state.y = 0;
+          applyTransform();
+        }
+
+        controls.addEventListener('click', event => {
+          const action = event.target.dataset.mapAction;
+          if (!action) return;
+
+          if (action === 'zoom-in') state.scale += 0.18;
+          if (action === 'zoom-out') state.scale -= 0.18;
+          if (action === 'reset') resetMap();
+          applyTransform();
+        });
+
+        map.addEventListener('wheel', event => {
+          event.preventDefault();
+          const delta = event.deltaY > 0 ? -0.12 : 0.12;
+          state.scale += delta;
+          applyTransform();
+        }, { passive: false });
+
+        map.addEventListener('pointerdown', event => {
+          if (event.target.closest('.map-controls') || event.target.closest('.map-legend') || event.target.classList.contains('map-marker')) return;
+          state.dragging = true;
+          state.sx = event.clientX;
+          state.sy = event.clientY;
+          state.ox = state.x;
+          state.oy = state.y;
+          map.classList.add('dragging');
+          map.setPointerCapture(event.pointerId);
+        });
+
+        map.addEventListener('pointermove', event => {
+          if (!state.dragging) return;
+          state.x = state.ox + (event.clientX - state.sx);
+          state.y = state.oy + (event.clientY - state.sy);
+          applyTransform();
+        });
+
+        map.addEventListener('pointerup', event => {
+          state.dragging = false;
+          map.classList.remove('dragging');
+          try { map.releasePointerCapture(event.pointerId); } catch (err) {}
+        });
+
+        map.addEventListener('pointerleave', () => {
+          state.dragging = false;
+          map.classList.remove('dragging');
+        });
+
+        const markers = [...map.querySelectorAll('.map-marker')];
+        const labels = ['Operante', 'Reserva fria', 'Reserva quente', 'Crítico', 'Atenção', 'Controlado', 'Estoque', 'Ativo'];
+        markers.forEach((marker, index) => {
+          const color = getComputedStyle(marker).getPropertyValue('--c').trim();
+          marker.dataset.color = color;
+          marker.dataset.label = labels[index % labels.length];
+
+          marker.addEventListener('click', event => {
+            event.stopPropagation();
+            const rect = map.getBoundingClientRect();
+            tooltip.style.left = (event.clientX - rect.left) + 'px';
+            tooltip.style.top = (event.clientY - rect.top) + 'px';
+            tooltip.innerHTML = `<strong>${marker.dataset.label} #${String(index + 1).padStart(2, '0')}</strong><span>Localização e identificadores anonimizados. Clique e arraste o mapa para explorar o cenário.</span>`;
+            tooltip.style.display = 'block';
+          });
+        });
+
+        map.addEventListener('click', event => {
+          if (!event.target.classList.contains('map-marker')) {
+            tooltip.style.display = 'none';
+          }
+        });
+
+        const legendItems = [...map.querySelectorAll('.map-legend span')];
+        legendItems.forEach((item, idx) => {
+          const dot = item.querySelector('i');
+          const color = dot ? getComputedStyle(dot).getPropertyValue('--c').trim() : '';
+          item.dataset.color = color;
+          item.dataset.active = '1';
+
+          item.addEventListener('click', event => {
+            event.stopPropagation();
+            const active = item.dataset.active !== '0';
+            item.dataset.active = active ? '0' : '1';
+            item.classList.toggle('muted', active);
+
+            markers.forEach(marker => {
+              if (!color) return;
+              const markerColor = marker.dataset.color;
+              if (markerColor === color) marker.classList.toggle('off', active);
+            });
+          });
+        });
+
+        applyTransform();
+      });
+    }
+
+    initInteractiveMaps();
 
   </script>
 </body>
