@@ -1,0 +1,1693 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfólio de Business Intelligence | Luiz Gonzaga</title>
+  <style>
+    :root {
+      --bg:#070b2e; --bg2:#0b1246; --sidebar:#15113c; --card:#171b54; --card2:#22145f;
+      --purple:#8b2cff; --purple2:#b147ff; --cyan:#43d9ff; --teal:#28e0b9;
+      --orange:#ff9f43; --pink:#f04db9; --green:#2bd66f; --red:#ff4d6d;
+      --text:#ffffff; --muted:#aeb6dd; --line:rgba(255,255,255,.12);
+      --soft:rgba(255,255,255,.08); --shadow:0 24px 60px rgba(0,0,0,.35);
+    }
+    :root.light {
+      --bg:#f4f7fb; --bg2:#ffffff; --sidebar:#ffffff; --card:#ffffff; --card2:#f7f2ff;
+      --text:#0f172a; --muted:#53627a; --line:rgba(15,23,42,.12); --soft:rgba(15,23,42,.05);
+      --shadow:0 24px 60px rgba(15,23,42,.12);
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0; min-height:100vh; font-family:"Segoe UI",Arial,Helvetica,sans-serif; color:var(--text);
+      background:
+        radial-gradient(circle at 18% 0%, rgba(139,44,255,.35), transparent 25%),
+        radial-gradient(circle at 86% 20%, rgba(67,217,255,.18), transparent 30%),
+        linear-gradient(135deg,var(--bg) 0%,#0a1150 42%,var(--bg) 100%);
+      -webkit-print-color-adjust:exact; print-color-adjust:exact;
+    }
+    .light body, :root.light body{background:#f4f7fb}
+    a{color:inherit;text-decoration:none} button,input,select{font-family:inherit}
+    .app{display:grid;grid-template-columns:292px 1fr;min-height:100vh}
+    aside{
+      position:sticky;top:0;height:100vh;padding:28px 24px;
+      background:linear-gradient(165deg,rgba(139,44,255,.35),rgba(10,16,70,.92) 42%,rgba(12,17,54,.95));
+      border-right:1px solid var(--line);box-shadow:var(--shadow);overflow:auto;z-index:10;
+    }
+    :root.light aside{background:#fff}
+    .brand{display:flex;align-items:center;gap:12px;margin-bottom:26px}
+    .mark{width:16px;height:16px;border-radius:50%;background:var(--purple);box-shadow:0 0 24px var(--purple)}
+    .brand h1{margin:0;font-size:29px;letter-spacing:-1.2px;line-height:1}
+    .brand small{display:block;color:var(--muted);font-size:11px;margin-top:4px;letter-spacing:.6px;text-transform:uppercase}
+    .side-search{margin-bottom:18px}
+    .side-search input{width:100%;border:1px solid var(--line);border-radius:14px;background:var(--soft);color:var(--text);padding:12px 13px;outline:none}
+    .menu{display:grid;gap:8px;margin-bottom:20px}
+    .menu a{display:flex;align-items:center;gap:12px;color:var(--text);padding:11px 12px;border-radius:13px;font-size:14px;border:1px solid transparent;opacity:.92}
+    .menu a.active,.menu a:hover{background:linear-gradient(90deg,var(--purple),#6f2aff);box-shadow:0 12px 30px rgba(139,44,255,.25);color:#fff;opacity:1}
+    .icon{width:23px;height:23px;display:grid;place-items:center;border-radius:8px;background:rgba(255,255,255,.12);font-size:13px}
+    .filter-label{color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:1px;font-weight:900;margin:20px 0 10px}
+    .filter-stack{display:grid;gap:8px}
+    .filter-btn{text-align:left;border:1px solid var(--line);background:var(--soft);color:var(--text);padding:10px 12px;border-radius:12px;cursor:pointer}
+    .filter-btn.active{background:linear-gradient(90deg,var(--cyan),var(--purple));color:white;border-color:transparent}
+    .side-line{height:1px;background:var(--line);margin:24px 0}
+    .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+    .chip{border-radius:999px;padding:7px 10px;background:var(--soft);border:1px solid var(--line);color:var(--text);font-size:12px}
+    .profile{margin-top:28px;display:flex;align-items:center;gap:12px}
+    .avatar{width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,var(--cyan),var(--purple));display:grid;place-items:center;font-weight:900;font-size:18px;box-shadow:0 12px 30px rgba(67,217,255,.17);color:white}
+    .profile b{display:block;font-size:16px} .profile span{color:var(--muted);font-size:12px}
+    main{padding:28px 34px 42px;overflow:hidden}
+    .topbar{{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      gap:24px;
+      margin:0 0 72px 0;
+      position:relative;
+      z-index:6;
+      padding:0 0 18px 0;
+      background:transparent;
+      backdrop-filter:none;
+      -webkit-backdrop-filter:none;
+      border-radius:0;
+    }}
+    :root.light .topbar{
+      background:transparent;
+      backdrop-filter:none;
+      -webkit-backdrop-filter:none;
+      box-shadow:none;
+    }
+    .headline small{color:#b78cff;text-transform:uppercase;letter-spacing:1.8px;font-weight:800;font-size:12px}
+    .headline h2{margin:4px 0 0;font-size:31px;letter-spacing:-.8px;font-weight:650}
+    .toolbar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:flex-end}
+    .tool-btn{border:1px solid var(--line);background:var(--soft);color:var(--text);border-radius:999px;padding:10px 13px;cursor:pointer;font-weight:700;font-size:13px}
+    .progress{position:fixed;left:0;top:0;height:4px;width:0;background:linear-gradient(90deg,var(--cyan),var(--purple),var(--pink));z-index:9999}
+    .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:22px;margin-bottom:24px}
+    .panel{background:radial-gradient(circle at 100% 0%,rgba(139,44,255,.35),transparent 38%),linear-gradient(145deg,rgba(255,255,255,.11),rgba(255,255,255,.045));border:1px solid var(--line);border-radius:24px;padding:22px;box-shadow:var(--shadow);backdrop-filter:blur(10px)}
+    :root.light .panel{background:#fff}
+    .intro h3{margin:0 0 10px;font-size:30px;letter-spacing:-.9px} .intro p{color:var(--muted);margin:0;max-width:780px;text-align:justify}
+    .kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:24px}
+    .kpi{position:relative;overflow:hidden;min-height:130px;background:linear-gradient(145deg,#1a2365,#25115a);border:1px solid var(--line);border-radius:20px;padding:18px;box-shadow:0 18px 45px rgba(0,0,0,.24);color:white}
+    .kpi::after{content:"";position:absolute;width:120px;height:120px;border-radius:50%;right:-46px;top:-42px;background:linear-gradient(135deg,rgba(67,217,255,.3),rgba(139,44,255,.25))}
+    .kpi span{color:#bfc8eb;font-size:13px} .kpi strong{display:block;margin-top:12px;font-size:36px;letter-spacing:-1.4px} .kpi small{display:block;color:#89f7d4;margin-top:8px;font-size:12px}
+    .screen-card{margin:34px 0 42px;padding:22px;border-radius:28px;background:linear-gradient(145deg,rgba(255,255,255,.08),rgba(255,255,255,.035));border:1px solid var(--line);box-shadow:0 22px 55px rgba(0,0,0,.25);break-inside:avoid;page-break-inside:avoid;transition:transform .2s ease,border-color .2s ease}
+    .screen-card:hover{transform:translateY(-2px);border-color:rgba(67,217,255,.35)}
+    :root.light .screen-card{background:#fff;box-shadow:var(--shadow)}
+    .screen-card.hidden{display:none}
+    .screen-head{display:flex;justify-content:space-between;gap:24px;align-items:flex-end;margin-bottom:18px}
+    .screen-kicker{display:block;color:#b78cff;text-transform:uppercase;letter-spacing:1.6px;font-size:11px;font-weight:900;margin-bottom:5px}
+    .screen-head h2{margin:0 0 6px;font-size:28px;letter-spacing:-.8px} .screen-head p{margin:0;color:var(--muted);max-width:760px;text-align:justify}
+    .screen-chips{display:flex;gap:7px;flex-wrap:wrap;margin-top:10px} .screen-chips mark{background:rgba(67,217,255,.12);color:#8eeeff;border:1px solid rgba(67,217,255,.22);padding:5px 8px;border-radius:999px;font-size:11px;font-weight:800}
+    :root.light .screen-chips mark{color:#165e82}
+    .screen-actions{display:flex;gap:8px;white-space:nowrap}
+    .ghost-btn{border:1px solid var(--line);background:var(--soft);color:var(--text);border-radius:12px;padding:10px 12px;font-weight:800;cursor:pointer}
+    .ghost-btn:hover{background:linear-gradient(90deg,var(--cyan),var(--purple));border-color:transparent;color:white}
+    .mock-screen{background:linear-gradient(135deg,#07114a,#100a43);border:1px solid rgba(255,255,255,.16);border-radius:22px;overflow:hidden;box-shadow:inset 0 0 0 1px rgba(255,255,255,.04),0 18px 45px rgba(0,0,0,.35);color:white}
+    .mock-top{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:14px 18px;background:linear-gradient(90deg,#121860,#43189b 60%,#1c0d5f);border-bottom:1px solid rgba(255,255,255,.14)}
+    .mock-brand{display:flex;align-items:center;gap:11px;min-width:260px} .mock-brand span{width:40px;height:40px;border-radius:13px;background:linear-gradient(135deg,var(--cyan),var(--purple));display:grid;place-items:center;font-weight:900} .mock-brand b{font-size:18px;letter-spacing:-.4px}
+    .mock-top nav{display:flex;gap:7px;flex-wrap:wrap;justify-content:flex-end} .mock-top nav span{padding:8px 10px;border-radius:9px;background:rgba(255,255,255,.1);color:#e6e8ff;font-size:11px;border:1px solid rgba(255,255,255,.12);font-weight:700} .mock-top nav span.on{background:#05051a;color:#fff;box-shadow:0 10px 22px rgba(0,0,0,.25)}
+    .mock-filters{display:grid;grid-template-columns:180px repeat(4,1fr);gap:12px;align-items:center;padding:16px 18px;background:rgba(255,255,255,.04);border-bottom:1px solid rgba(255,255,255,.1)} .mock-filters b{font-size:16px;text-transform:uppercase} .mock-filters label{display:grid;gap:4px;color:#aeb6dd;font-size:11px;text-transform:uppercase;font-weight:800;letter-spacing:.4px} .mock-filters label span{height:32px;display:flex;align-items:center;padding:0 11px;border-radius:10px;background:rgba(255,255,255,.1);color:#fff;text-transform:none;font-weight:600;letter-spacing:0;border:1px solid rgba(255,255,255,.1)}
+    .mock-kpis{display:grid;gap:14px;padding:18px} .mock-kpis.four{grid-template-columns:repeat(4,1fr)} .mock-kpi{background:linear-gradient(145deg,rgba(255,255,255,.13),rgba(255,255,255,.055));border:1px solid rgba(255,255,255,.13);border-radius:18px;padding:16px;min-height:116px;position:relative;overflow:hidden} .mock-kpi::before{content:"";position:absolute;left:0;top:18px;width:5px;height:64px;border-radius:99px;background:linear-gradient(180deg,var(--cyan),var(--purple))} .mock-kpi span{display:block;margin-left:10px;font-weight:800;text-transform:uppercase;font-size:13px} .mock-kpi strong{display:block;margin:12px 0 0 10px;font-size:38px;letter-spacing:-1.6px} .mock-kpi small{display:block;margin:4px 0 0 10px;color:#aeb6dd} .mock-kpi em{font-style:normal;position:absolute;right:14px;top:14px;color:#8fffe3;font-size:11px}
+    .mock-grid{display:grid;gap:14px;padding:0 18px 18px} .mock-grid.one{grid-template-columns:1fr} .mock-grid.two{grid-template-columns:repeat(2,1fr)} .mock-grid.three{grid-template-columns:repeat(3,1fr)}
+    .mini-panel{background:rgba(255,255,255,.075);border:1px solid rgba(255,255,255,.12);border-radius:18px;padding:14px;min-height:230px;overflow:hidden;break-inside:avoid;page-break-inside:avoid} .mini-panel h4{margin:0 0 12px;font-size:17px;text-align:center;letter-spacing:-.3px}
+    .columns{height:245px;display:flex;align-items:stretch;gap:12px;border-bottom:1px solid rgba(255,255,255,.12);padding:10px 6px 0} .columns.small{height:225px} .bar-col{flex:1;display:grid;grid-template-rows:22px 1fr 36px;justify-items:center;align-items:end;min-width:38px;height:100%} .bar-col b{font-size:12px;color:#e8ecff;line-height:1;align-self:end} .bar-col i{grid-row:2;align-self:end;width:100%;max-width:46px;min-height:10px;border-radius:12px 12px 4px 4px;background:linear-gradient(180deg,var(--cyan),var(--purple));display:block;box-shadow:0 0 20px rgba(67,217,255,.18)} .bar-col i.teal{background:linear-gradient(180deg,var(--teal),var(--cyan))} .bar-col i.orange{background:linear-gradient(180deg,var(--orange),var(--pink))} .bar-col span{height:34px;text-align:center;font-size:11px;color:#aeb6dd;line-height:1.05;display:flex;align-items:flex-start;justify-content:center;padding-top:6px}
+    .bars{display:grid;gap:11px} .bars.compact{gap:9px} .hbar-row{display:grid;grid-template-columns:118px 1fr 38px;gap:10px;align-items:center;font-size:12px;color:#e8ecff} .htrack{height:12px;border-radius:999px;background:rgba(255,255,255,.12);overflow:hidden} .htrack i{display:block;height:100%;border-radius:inherit;background:linear-gradient(90deg,var(--cyan),var(--purple))} .htrack i.purple{background:linear-gradient(90deg,var(--purple),var(--purple2))} .htrack i.teal{background:linear-gradient(90deg,var(--teal),var(--cyan))} .htrack i.orange{background:linear-gradient(90deg,var(--orange),var(--pink))} .htrack i.stack{background:linear-gradient(90deg,#3537d7 0 60%,#1fa4ff 60% 100%)} .hbar-row b{font-size:12px;text-align:right}
+    .mock-table{width:100%;border-collapse:collapse;font-size:12px;overflow:hidden;border-radius:12px} .mock-table th{text-align:left;padding:9px;background:rgba(139,44,255,.34);font-size:11px;color:#fff} .mock-table td{padding:9px;border-bottom:1px solid rgba(255,255,255,.08);color:#e1e6ff} .mock-table tr:nth-child(even) td{background:rgba(255,255,255,.035)}
+    .gantt-wrap{padding:18px;display:grid;gap:12px} .timeline{display:grid;grid-template-columns:repeat(6,1fr);color:#aeb6dd;font-size:11px;margin-left:130px} .gantt-row{display:grid;grid-template-columns:110px 1fr 160px;gap:12px;align-items:center;color:#e8ecff;font-size:12px} .gantt-track{position:relative;height:22px;border-radius:999px;background:rgba(255,255,255,.1);overflow:hidden} .gantt-track i{position:absolute;top:0;height:100%;border-radius:inherit;background:linear-gradient(90deg,var(--orange),var(--pink))} .gantt-track i.green{background:linear-gradient(90deg,var(--green),var(--teal))} .gantt-track i.purple{background:linear-gradient(90deg,var(--purple),var(--cyan))} .gantt-row em{font-style:normal;color:#aeb6dd}
+    .stack-columns,.multi-columns{height:245px;display:flex;align-items:stretch;gap:10px;border-bottom:1px solid rgba(255,255,255,.12);padding:10px 6px 0} .stack-col,.multi-col{flex:1;display:grid;grid-template-rows:22px 1fr 34px;justify-items:center;align-items:end;min-width:32px;height:100%} .stack-col b,.multi-col b{font-size:11px;line-height:1;align-self:end} .stackbar,.multi{grid-row:2;align-self:end;width:100%;max-width:46px;min-height:12px;display:flex;flex-direction:column-reverse;border-radius:12px 12px 4px 4px;overflow:hidden;background:rgba(255,255,255,.12)} .stackbar i{display:block;background:var(--cyan)} .stackbar u{display:block;background:var(--purple);text-decoration:none} .multi i{display:block} .multi .a{background:#1f8fff} .multi .b{background:#f36f3d} .multi .c{background:#d93db2} .multi .d{background:#5d2ce0} .stack-col span,.multi-col span{font-size:10px;color:#aeb6dd;text-align:center;line-height:1.05;align-self:start;padding-top:6px}
+    .legend-mini{display:flex;gap:14px;justify-content:center;margin-top:10px;color:#aeb6dd;font-size:11px} .legend-mini i,.legend-mini u{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:5px;background:var(--cyan);text-decoration:none} .legend-mini u{background:var(--purple)}
+    .mock-footer{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;padding:10px 18px;background:rgba(255,255,255,.045);border-top:1px solid rgba(255,255,255,.1);color:#aeb6dd;font-size:11px;text-transform:uppercase;font-weight:800}
+    .donut-wrap{display:grid;grid-template-columns:220px 1fr;gap:20px;align-items:center} .donut{width:210px;height:210px;border-radius:50%;display:grid;place-items:center;background:conic-gradient(var(--cyan) 0 28%, var(--purple) 28% 72%, var(--orange) 72% 88%, rgba(255,255,255,.12) 88% 100%);position:relative;box-shadow:inset 0 0 35px rgba(0,0,0,.28),0 20px 35px rgba(0,0,0,.22)} .donut::before{content:"";position:absolute;width:122px;height:122px;border-radius:50%;background:#11164d} .donut strong{position:relative;z-index:1;font-size:34px;color:white} .legend{display:grid;gap:10px} .legend div{display:flex;justify-content:space-between;gap:14px;color:var(--text);border-bottom:1px solid var(--line);padding-bottom:8px;font-size:13px} .dot{width:10px;height:10px;border-radius:50%;display:inline-block;margin-right:8px;background:var(--cyan)} .dot.purple{background:var(--purple)}.dot.orange{background:var(--orange)}.dot.green{background:var(--green)}
+    .modal{position:fixed;inset:0;background:rgba(3,7,18,.82);display:none;align-items:center;justify-content:center;padding:24px;z-index:1000} .modal.open{display:flex} .modal-body{width:min(1500px,96vw);max-height:92vh;overflow:auto;border-radius:26px;background:#070b2e;border:1px solid rgba(255,255,255,.14);box-shadow:0 30px 90px rgba(0,0,0,.55)} .modal-top{display:flex;justify-content:space-between;align-items:center;padding:14px 18px;border-bottom:1px solid rgba(255,255,255,.1)} .modal-close{border:0;background:#fff;color:#111827;border-radius:999px;padding:9px 12px;cursor:pointer;font-weight:900} .modal-content{padding:18px} .modal-content .screen-head{display:none} .modal-content .mock-screen{box-shadow:none}
+
+    footer{margin-top:34px;padding:24px;border-radius:24px;border:1px solid var(--line);background:var(--soft);display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;color:var(--muted)} footer b{color:var(--text)}
+
+    /* Cursor visual para demonstração */
+    .cursor-dot,.cursor-ring{
+      position:fixed;
+      left:0;
+      top:0;
+      pointer-events:none;
+      transform:translate(-50%,-50%);
+      z-index:9998;
+      display:none;
+    }
+    .cursor-dot{
+      width:8px;
+      height:8px;
+      border-radius:50%;
+      background:var(--cyan);
+      box-shadow:0 0 18px rgba(67,217,255,.85);
+    }
+    .cursor-ring{
+      width:34px;
+      height:34px;
+      border:2px solid rgba(67,217,255,.75);
+      border-radius:50%;
+      transition:width .16s ease,height .16s ease,border-color .16s ease,background .16s ease;
+      background:rgba(67,217,255,.06);
+    }
+    body.cursor-on .cursor-dot,
+    body.cursor-on .cursor-ring{display:block}
+    body.cursor-hover .cursor-ring{
+      width:52px;
+      height:52px;
+      border-color:rgba(139,44,255,.9);
+      background:rgba(139,44,255,.12);
+    }
+
+    /* Tema claro corrigido */
+    :root.light body{
+      background:
+        radial-gradient(circle at 14% 0%, rgba(139,44,255,.12), transparent 30%),
+        radial-gradient(circle at 88% 12%, rgba(67,217,255,.16), transparent 30%),
+        #f4f7fb;
+      color:#0f172a;
+    }
+    :root.light aside{
+      background:linear-gradient(180deg,#ffffff,#eef3ff);
+      color:#0f172a;
+      border-right:1px solid rgba(15,23,42,.10);
+    }
+    :root.light .menu a{
+      color:#182033;
+      background:transparent;
+    }
+    :root.light .menu a.active,
+    :root.light .menu a:hover{
+      color:#fff;
+      background:linear-gradient(90deg,var(--purple),#6f2aff);
+    }
+    :root.light .side-search input,
+    :root.light .tool-btn,
+    :root.light .filter-btn,
+    :root.light .ghost-btn{
+      background:rgba(255,255,255,.72);
+      color:#0f172a;
+      border-color:rgba(15,23,42,.12);
+      backdrop-filter:blur(12px);
+      -webkit-backdrop-filter:blur(12px);
+    }
+    :root.light .filter-btn.active{
+      color:#fff;
+      border-color:transparent;
+      background:linear-gradient(90deg,var(--cyan),var(--purple));
+    }
+    :root.light .panel,
+    :root.light .screen-card{
+      background:#ffffff;
+      color:#0f172a;
+      border-color:rgba(15,23,42,.12);
+      box-shadow:0 20px 50px rgba(15,23,42,.10);
+    }
+    :root.light .intro p,
+    :root.light .screen-head p,
+    :root.light .brand small,
+    :root.light .profile span,
+    :root.light .muted{
+      color:#53627a;
+    }
+    :root.light .chip{
+      background:#f3f6fb;
+      border-color:#dde5f0;
+      color:#182033;
+    }
+    :root.light .legend div{
+      color:#182033;
+      border-color:rgba(15,23,42,.10);
+    }
+    :root.light footer{
+      background:#ffffff;
+      color:#53627a;
+      border-color:rgba(15,23,42,.12);
+    }
+    :root.light footer b{color:#0f172a}
+    :root.light .topbar{
+      background:transparent;
+      backdrop-filter:none;
+      -webkit-backdrop-filter:none;
+      box-shadow:none;
+    }
+@page{size:A4 landscape;margin:8mm}
+    @media print{body{background:#070b2e}.app{display:block}aside,.topbar,.screen-actions,.modal,.toast{display:none!important}main{padding:0}.screen-card{break-inside:avoid;page-break-inside:avoid;margin:0 0 8mm;box-shadow:none}.panel,.kpi{box-shadow:none}}
+    @media(max-width:1150px){.app{grid-template-columns:1fr}aside{position:relative;height:auto}.hero-grid,.mock-grid.two,.mock-grid.three,.donut-wrap{grid-template-columns:1fr}.kpi-grid,.mock-kpis.four{grid-template-columns:1fr 1fr}.mock-filters{grid-template-columns:1fr 1fr}.search{display:none}.screen-head{display:block}.screen-actions{margin-top:12px}}
+    @media(max-width:640px){main{padding:20px}.kpi-grid,.mock-kpis.four{grid-template-columns:1fr}.mock-top{display:block}.mock-top nav{margin-top:12px;justify-content:flex-start}.gantt-row{grid-template-columns:1fr}.timeline{display:none}.mock-filters{grid-template-columns:1fr}.topbar{display:block}.toolbar{justify-content:flex-start;margin-top:10px}}
+  </style>
+</head>
+<body>
+  <div class="cursor-ring" id="cursorRing"></div>
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="progress" id="progress"></div>
+  <div class="app">
+    <aside>
+      <div class="brand"><span class="mark"></span><div><h1>BI Portfolio</h1><small>Operações & Analytics</small></div></div>
+      <div class="side-search"><input id="searchInput" type="search" placeholder="Buscar tela, KPI ou processo..." /></div>
+      <nav class="menu">
+        <a class="active" href="#visao"><span class="icon">▦</span> Visão geral</a>
+        <a href="#executado-backlog"><span class="icon">▤</span> Executado</a>
+        <a href="#plano-gantt"><span class="icon">▥</span> Plano Gantt</a>
+        <a href="#bad-actors"><span class="icon">◈</span> Bad Actors</a>
+        <a href="#icm-analitico"><span class="icon">◍</span> ICM</a>
+        <a href="#deslocamento-execucao"><span class="icon">↔</span> Execução</a>
+        <a href="#horas-trabalhadas"><span class="icon">◷</span> Horas</a>
+        <a href="#bombas-paineis"><span class="icon">⚙</span> Bombas</a>
+      </nav>
+      <div class="filter-label">Filtrar telas</div>
+      <div class="filter-stack">
+        <button class="filter-btn active" data-filter="all">Todas</button>
+        <button class="filter-btn" data-filter="Operação">Operação</button>
+        <button class="filter-btn" data-filter="Manutenção">Manutenção</button>
+        <button class="filter-btn" data-filter="Confiabilidade">Confiabilidade</button>
+        <button class="filter-btn" data-filter="Produtividade">Produtividade</button>
+        <button class="filter-btn" data-filter="Componentes">Componentes</button>
+        <button class="filter-btn" data-filter="Analítico">Analítico</button>
+      </div>
+<div class="side-line"></div>
+      <div class="chips"><span class="chip">Power BI</span><span class="chip">DAX</span><span class="chip">Power Query</span><span class="chip">SQL</span><span class="chip">PCM</span><span class="chip">KPIs</span></div>
+      <div class="profile"><div class="avatar">LG</div><div><b>Luiz Gonzaga</b><span>Data Analytics • Engenharia</span></div></div>
+    </aside>
+
+    <main>
+      <div class="topbar">
+        <div class="headline"><small>Portfólio técnico</small><h2>Portfólio de Business Intelligence</h2></div>
+        <div class="toolbar"><button class="tool-btn" id="themeBtn">Tema claro</button></div>
+      </div>
+
+      <section class="hero-grid" id="visao">
+        <div class="panel intro">
+          <h3>Business Intelligence para operação, manutenção e tomada de decisão.</h3>
+          <p>Portfólio demonstrativo com soluções de BI voltadas a indicadores operacionais, planejamento, backlog, ordens, ativos, produtividade e confiabilidade, sem exposição de logotipos institucionais ou dados sensíveis. A proposta apresenta arquitetura visual, lógica analítica e indicadores aplicados a planejamento, backlog, ordens, ativos, produtividade e confiabilidade operacional.</p>
+          <div class="chips"><span class="chip">Dados anonimizados</span><span class="chip">Sem marca institucional</span><span class="chip">Projetos de BI</span><span class="chip">Visual executivo</span></div>
+        </div>
+        <div class="panel">
+          <h3 style="margin-top:0">Capacidades técnicas demonstradas</h3>
+          <div class="donut-wrap">
+            <div class="donut"><strong>BI</strong></div>
+            <div class="legend">
+              <div><span><i class="dot"></i>Automação de relatórios</span><b>Power BI</b></div>
+              <div><span><i class="dot purple"></i>Modelagem de dados</span><b>DAX / Power Query</b></div>
+              <div><span><i class="dot orange"></i>Governança visual</span><b>Dados anonimizados</b></div>
+              <div><span><i class="dot green"></i>Indicadores executivos</span><b>KPIs operacionais</b></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="kpi-grid">
+        <div class="kpi"><span>Projetos de BI</span><strong>9</strong><small>visual executivo</small></div>
+        <div class="kpi"><span>Confidencialidade</span><strong>100%</strong><small>dados sensíveis preservados</small></div>
+        <div class="kpi"><span>Domínios</span><strong>3</strong><small>operação, manutenção e processos</small></div>
+        <div class="kpi"><span>Foco</span><strong>KPI</strong><small>gestão e tomada de decisão</small></div>
+      </section>
+
+      
+    <article class="screen-card" id="executado-backlog" data-category="Operação" data-title="executado & backlog" data-keywords="executado & backlog visão executiva para comparar ordens executadas, backlog e plano preventivo por regional. operação">
+      <div class="screen-head">
+        <div>
+          <span class="screen-kicker">Operação</span>
+          <h2>Executado & Backlog</h2>
+          <p>Visão executiva para comparar ordens executadas, backlog e plano preventivo por regional.</p>
+          <div class="screen-chips"><mark>Backlog</mark><mark>Plano preventivo</mark><mark>Regional</mark><mark>Priorização</mark></div>
+        </div>
+        <div class="screen-actions">
+          <button class="ghost-btn expand-btn">Modo foco</button>
+        </div>
+      </div>
+      <div class="mock-screen">
+        <div class="mock-top">
+          <div class="mock-brand"><span>LG</span><b>Executado & Backlog</b></div>
+          <nav><span class="">Aderência</span><span class="on">Executado</span><span class="">Plano</span><span class="">Bad Actors</span><span class="">ICM</span><span class="">Execução</span><span class="">Horas</span><span class="">Bombas</span><span class="">Componentes</span><span class="">Analítico</span></nav>
+        </div>
+        <div class="mock-filters">
+          <b>Painel de filtros</b>
+          <label>Período <span>Jan/2026 — Mar/2026</span></label>
+          <label>Base <span>Todas</span></label>
+          <label>Município <span>Todos</span></label>
+          <label>Planta <span>Anonimizada</span></label>
+        </div>
+    <div class="mock-kpis four">
+    <div class="mock-kpi" data-metric="Ordens sob demanda">
+      <span>Ordens sob demanda</span>
+      <strong>16k</strong>
+      <small>executadas</small>
+      <em>↗ consolidado</em>
+    </div>
+    <div class="mock-kpi" data-metric="Backlog operacional">
+      <span>Backlog operacional</span>
+      <strong>1.135</strong>
+      <small>pendências</small>
+      <em>monitorar</em>
+    </div>
+    <div class="mock-kpi" data-metric="Plano preventivo">
+      <span>Plano preventivo</span>
+      <strong>24k</strong>
+      <small>executadas</small>
+      <em>em rotina</em>
+    </div>
+    <div class="mock-kpi" data-metric="Backlog preventivo">
+      <span>Backlog preventivo</span>
+      <strong>5.698</strong>
+      <small>carteira</small>
+      <em>priorizar</em>
+    </div></div><div class="mock-grid two"><div class="mini-panel "><h4>Ordens executadas por regional</h4><div class="columns">
+    <div class="bar-col">
+      <b>2.144</b>
+      <i class="" style="height:88%"></i>
+      <span>Regional A</span>
+    </div>
+    <div class="bar-col">
+      <b>1.764</b>
+      <i class="" style="height:72%"></i>
+      <span>Regional B</span>
+    </div>
+    <div class="bar-col">
+      <b>1.164</b>
+      <i class="" style="height:52%"></i>
+      <span>Regional C</span>
+    </div>
+    <div class="bar-col">
+      <b>847</b>
+      <i class="" style="height:39%"></i>
+      <span>Regional D</span>
+    </div>
+    <div class="bar-col">
+      <b>766</b>
+      <i class="" style="height:35%"></i>
+      <span>Regional E</span>
+    </div>
+    <div class="bar-col">
+      <b>766</b>
+      <i class="" style="height:35%"></i>
+      <span>Regional F</span>
+    </div></div></div><div class="mini-panel "><h4>Backlog por regional</h4><div class="bars">
+    <div class="hbar-row">
+      <span>Regional A</span>
+      <div class="htrack"><i class="purple" style="width:92%"></i></div>
+      <b>375</b>
+    </div>
+    <div class="hbar-row">
+      <span>Regional B</span>
+      <div class="htrack"><i class="purple" style="width:78%"></i></div>
+      <b>310</b>
+    </div>
+    <div class="hbar-row">
+      <span>Regional C</span>
+      <div class="htrack"><i class="purple" style="width:25%"></i></div>
+      <b>64</b>
+    </div>
+    <div class="hbar-row">
+      <span>Regional D</span>
+      <div class="htrack"><i class="purple" style="width:18%"></i></div>
+      <b>44</b>
+    </div>
+    <div class="hbar-row">
+      <span>Regional E</span>
+      <div class="htrack"><i class="purple" style="width:18%"></i></div>
+      <b>43</b>
+    </div>
+    <div class="hbar-row">
+      <span>Regional F</span>
+      <div class="htrack"><i class="purple" style="width:15%"></i></div>
+      <b>35</b>
+    </div></div></div><div class="mini-panel "><h4>Plano preventivo executado</h4><div class="columns small">
+    <div class="bar-col">
+      <b>205</b>
+      <i class="teal" style="height:54%"></i>
+      <span>Jan</span>
+    </div>
+    <div class="bar-col">
+      <b>184</b>
+      <i class="teal" style="height:49%"></i>
+      <span>Fev</span>
+    </div>
+    <div class="bar-col">
+      <b>85</b>
+      <i class="teal" style="height:25%"></i>
+      <span>Mar</span>
+    </div>
+    <div class="bar-col">
+      <b>376</b>
+      <i class="teal" style="height:90%"></i>
+      <span>Jun</span>
+    </div>
+    <div class="bar-col">
+      <b>34</b>
+      <i class="teal" style="height:12%"></i>
+      <span>Out</span>
+    </div>
+    <div class="bar-col">
+      <b>8</b>
+      <i class="teal" style="height:5%"></i>
+      <span>Nov</span>
+    </div></div></div><div class="mini-panel "><h4>Plano preventivo em backlog</h4><div class="columns small">
+    <div class="bar-col">
+      <b>8</b>
+      <i class="orange" style="height:7%"></i>
+      <span>Jan</span>
+    </div>
+    <div class="bar-col">
+      <b>32</b>
+      <i class="orange" style="height:19%"></i>
+      <span>Fev</span>
+    </div>
+    <div class="bar-col">
+      <b>161</b>
+      <i class="orange" style="height:88%"></i>
+      <span>Mar</span>
+    </div>
+    <div class="bar-col">
+      <b>41</b>
+      <i class="orange" style="height:24%"></i>
+      <span>Jun</span>
+    </div>
+    <div class="bar-col">
+      <b>9</b>
+      <i class="orange" style="height:8%"></i>
+      <span>Set</span>
+    </div>
+    <div class="bar-col">
+      <b>76</b>
+      <i class="orange" style="height:45%"></i>
+      <span>Fev+</span>
+    </div></div></div></div>
+        <div class="mock-footer">
+          <span>Portfólio demonstrativo</span>
+          <span>Portfólio técnico de BI operacional</span>
+          <span>Confidencialidade preservada</span>
+        </div>
+      </div>
+    </article>
+    
+    <article class="screen-card" id="plano-gantt" data-category="Manutenção" data-title="plano de manutenção | gantt" data-keywords="plano de manutenção | gantt planejamento visual de ordens preventivas e preditivas, com recorte por ativo e período. manutenção">
+      <div class="screen-head">
+        <div>
+          <span class="screen-kicker">Manutenção</span>
+          <h2>Plano de Manutenção | Gantt</h2>
+          <p>Planejamento visual de ordens preventivas e preditivas, com recorte por ativo e período.</p>
+          <div class="screen-chips"><mark>Gantt</mark><mark>Preventiva</mark><mark>Preditiva</mark><mark>Programação</mark></div>
+        </div>
+        <div class="screen-actions">
+          <button class="ghost-btn expand-btn">Modo foco</button>
+        </div>
+      </div>
+      <div class="mock-screen">
+        <div class="mock-top">
+          <div class="mock-brand"><span>LG</span><b>Plano de Manutenção | Gantt</b></div>
+          <nav><span class="">Aderência</span><span class="">Executado</span><span class="on">Plano</span><span class="">Bad Actors</span><span class="">ICM</span><span class="">Execução</span><span class="">Horas</span><span class="">Bombas</span><span class="">Componentes</span><span class="">Analítico</span></nav>
+        </div>
+        <div class="mock-filters">
+          <b>Painel de filtros</b>
+          <label>Período <span>Jan/2026 — Mar/2026</span></label>
+          <label>Base <span>Todas</span></label>
+          <label>Município <span>Todos</span></label>
+          <label>Planta <span>Anonimizada</span></label>
+        </div>
+    <div class="gantt-wrap"><div class="timeline"><span>Jan 07</span><span>Jan 14</span><span>Jan 21</span><span>Jan 28</span><span>Fev 04</span><span>Fev 11</span></div><div class="gantt-row"><b>Ativo 001</b><div class="gantt-track"><i class="green" style="left:7%;width:44%"></i></div><em>Serviço programado</em></div><div class="gantt-row"><b>Ativo 002</b><div class="gantt-track"><i class="" style="left:12%;width:64%"></i></div><em>Serviço programado</em></div><div class="gantt-row"><b>Ativo 003</b><div class="gantt-track"><i class="purple" style="left:3%;width:80%"></i></div><em>Serviço programado</em></div><div class="gantt-row"><b>Ativo 004</b><div class="gantt-track"><i class="green" style="left:18%;width:48%"></i></div><em>Serviço programado</em></div><div class="gantt-row"><b>Ativo 005</b><div class="gantt-track"><i class="" style="left:34%;width:38%"></i></div><em>Serviço programado</em></div><div class="gantt-row"><b>Ativo 006</b><div class="gantt-track"><i class="purple" style="left:46%;width:42%"></i></div><em>Serviço programado</em></div><div class="gantt-row"><b>Ativo 007</b><div class="gantt-track"><i class="green" style="left:55%;width:36%"></i></div><em>Serviço programado</em></div><div class="gantt-row"><b>Ativo 008</b><div class="gantt-track"><i class="" style="left:4%;width:62%"></i></div><em>Serviço programado</em></div><div class="gantt-row"><b>Ativo 009</b><div class="gantt-track"><i class="green" style="left:28%;width:54%"></i></div><em>Serviço programado</em></div></div>
+        <div class="mock-footer">
+          <span>Portfólio demonstrativo</span>
+          <span>Portfólio técnico de BI operacional</span>
+          <span>Confidencialidade preservada</span>
+        </div>
+      </div>
+    </article>
+    
+    <article class="screen-card" id="bad-actors" data-category="Confiabilidade" data-title="bad actors | analítico" data-keywords="bad actors | analítico identificação de ativos reincidentes para apoiar priorização técnica e redução de recorrências. confiabilidade">
+      <div class="screen-head">
+        <div>
+          <span class="screen-kicker">Confiabilidade</span>
+          <h2>Bad Actors | Analítico</h2>
+          <p>Identificação de ativos reincidentes para apoiar priorização técnica e redução de recorrências.</p>
+          <div class="screen-chips"><mark>Reincidência</mark><mark>Criticidade</mark><mark>Ativos</mark><mark>Causa-raiz</mark></div>
+        </div>
+        <div class="screen-actions">
+          <button class="ghost-btn expand-btn">Modo foco</button>
+        </div>
+      </div>
+      <div class="mock-screen">
+        <div class="mock-top">
+          <div class="mock-brand"><span>LG</span><b>Bad Actors | Analítico</b></div>
+          <nav><span class="">Aderência</span><span class="">Executado</span><span class="">Plano</span><span class="on">Bad Actors</span><span class="">ICM</span><span class="">Execução</span><span class="">Horas</span><span class="">Bombas</span><span class="">Componentes</span><span class="">Analítico</span></nav>
+        </div>
+        <div class="mock-filters">
+          <b>Painel de filtros</b>
+          <label>Período <span>Jan/2026 — Mar/2026</span></label>
+          <label>Base <span>Todas</span></label>
+          <label>Município <span>Todos</span></label>
+          <label>Planta <span>Anonimizada</span></label>
+        </div>
+    <div class="mock-grid three"><div class="mini-panel "><h4>Regional A</h4><div class="bars compact">
+    <div class="hbar-row">
+      <span>Ativo A1</span>
+      <div class="htrack"><i class="stack" style="width:88%"></i></div>
+      <b>7</b>
+    </div>
+    <div class="hbar-row">
+      <span>Ativo A2</span>
+      <div class="htrack"><i class="stack" style="width:76%"></i></div>
+      <b>6</b>
+    </div>
+    <div class="hbar-row">
+      <span>Ativo A3</span>
+      <div class="htrack"><i class="stack" style="width:55%"></i></div>
+      <b>4</b>
+    </div>
+    <div class="hbar-row">
+      <span>Ativo A4</span>
+      <div class="htrack"><i class="stack" style="width:42%"></i></div>
+      <b>3</b>
+    </div></div></div><div class="mini-panel "><h4>Regional B</h4><div class="bars compact">
+    <div class="hbar-row">
+      <span>Ativo B1</span>
+      <div class="htrack"><i class="stack" style="width:70%"></i></div>
+      <b>5</b>
+    </div>
+    <div class="hbar-row">
+      <span>Ativo B2</span>
+      <div class="htrack"><i class="stack" style="width:62%"></i></div>
+      <b>4</b>
+    </div>
+    <div class="hbar-row">
+      <span>Ativo B3</span>
+      <div class="htrack"><i class="stack" style="width:48%"></i></div>
+      <b>3</b>
+    </div>
+    <div class="hbar-row">
+      <span>Ativo B4</span>
+      <div class="htrack"><i class="stack" style="width:34%"></i></div>
+      <b>2</b>
+    </div></div></div><div class="mini-panel "><h4>Regional C</h4><div class="bars compact">
+    <div class="hbar-row">
+      <span>Ativo C1</span>
+      <div class="htrack"><i class="stack" style="width:82%"></i></div>
+      <b>6</b>
+    </div>
+    <div class="hbar-row">
+      <span>Ativo C2</span>
+      <div class="htrack"><i class="stack" style="width:64%"></i></div>
+      <b>5</b>
+    </div>
+    <div class="hbar-row">
+      <span>Ativo C3</span>
+      <div class="htrack"><i class="stack" style="width:44%"></i></div>
+      <b>3</b>
+    </div>
+    <div class="hbar-row">
+      <span>Ativo C4</span>
+      <div class="htrack"><i class="stack" style="width:32%"></i></div>
+      <b>2</b>
+    </div></div></div><div class="mini-panel "><h4>Regional D</h4><div class="bars compact">
+    <div class="hbar-row">
+      <span>Ativo D1</span>
+      <div class="htrack"><i class="stack" style="width:79%"></i></div>
+      <b>6</b>
+    </div>
+    <div class="hbar-row">
+      <span>Ativo D2</span>
+      <div class="htrack"><i class="stack" style="width:69%"></i></div>
+      <b>5</b>
+    </div>
+    <div class="hbar-row">
+      <span>Ativo D3</span>
+      <div class="htrack"><i class="stack" style="width:48%"></i></div>
+      <b>3</b>
+    </div>
+    <div class="hbar-row">
+      <span>Ativo D4</span>
+      <div class="htrack"><i class="stack" style="width:31%"></i></div>
+      <b>2</b>
+    </div></div></div><div class="mini-panel "><h4>Regional E</h4><div class="bars compact">
+    <div class="hbar-row">
+      <span>Ativo E1</span>
+      <div class="htrack"><i class="stack" style="width:72%"></i></div>
+      <b>5</b>
+    </div>
+    <div class="hbar-row">
+      <span>Ativo E2</span>
+      <div class="htrack"><i class="stack" style="width:56%"></i></div>
+      <b>4</b>
+    </div>
+    <div class="hbar-row">
+      <span>Ativo E3</span>
+      <div class="htrack"><i class="stack" style="width:45%"></i></div>
+      <b>3</b>
+    </div>
+    <div class="hbar-row">
+      <span>Ativo E4</span>
+      <div class="htrack"><i class="stack" style="width:35%"></i></div>
+      <b>2</b>
+    </div></div></div><div class="mini-panel "><h4>Regional F</h4><div class="bars compact">
+    <div class="hbar-row">
+      <span>Ativo F1</span>
+      <div class="htrack"><i class="stack" style="width:58%"></i></div>
+      <b>3</b>
+    </div>
+    <div class="hbar-row">
+      <span>Ativo F2</span>
+      <div class="htrack"><i class="stack" style="width:45%"></i></div>
+      <b>2</b>
+    </div>
+    <div class="hbar-row">
+      <span>Ativo F3</span>
+      <div class="htrack"><i class="stack" style="width:38%"></i></div>
+      <b>2</b>
+    </div>
+    <div class="hbar-row">
+      <span>Ativo F4</span>
+      <div class="htrack"><i class="stack" style="width:24%"></i></div>
+      <b>1</b>
+    </div></div></div></div>
+        <div class="mock-footer">
+          <span>Portfólio demonstrativo</span>
+          <span>Portfólio técnico de BI operacional</span>
+          <span>Confidencialidade preservada</span>
+        </div>
+      </div>
+    </article>
+    
+    <article class="screen-card" id="icm-analitico" data-category="Confiabilidade" data-title="icm | itens, causas e medidas" data-keywords="icm | itens, causas e medidas análise de tipo de ordem, equipamentos, itens, causas, medidas e falhas recorrentes. confiabilidade">
+      <div class="screen-head">
+        <div>
+          <span class="screen-kicker">Confiabilidade</span>
+          <h2>ICM | Itens, Causas e Medidas</h2>
+          <p>Análise de tipo de ordem, equipamentos, itens, causas, medidas e falhas recorrentes.</p>
+          <div class="screen-chips"><mark>Itens</mark><mark>Causas</mark><mark>Medidas</mark><mark>Falhas</mark></div>
+        </div>
+        <div class="screen-actions">
+          <button class="ghost-btn expand-btn">Modo foco</button>
+        </div>
+      </div>
+      <div class="mock-screen">
+        <div class="mock-top">
+          <div class="mock-brand"><span>LG</span><b>ICM | Itens, Causas e Medidas</b></div>
+          <nav><span class="">Aderência</span><span class="">Executado</span><span class="">Plano</span><span class="">Bad Actors</span><span class="on">ICM</span><span class="">Execução</span><span class="">Horas</span><span class="">Bombas</span><span class="">Componentes</span><span class="">Analítico</span></nav>
+        </div>
+        <div class="mock-filters">
+          <b>Painel de filtros</b>
+          <label>Período <span>Jan/2026 — Mar/2026</span></label>
+          <label>Base <span>Todas</span></label>
+          <label>Município <span>Todos</span></label>
+          <label>Planta <span>Anonimizada</span></label>
+        </div>
+    <div class="mock-grid three"><div class="mini-panel "><h4>Ordens executadas</h4><div class="bars compact">
+    <div class="hbar-row">
+      <span>Preventiva</span>
+      <div class="htrack"><i class="teal" style="width:96%"></i></div>
+      <b>1.430</b>
+    </div>
+    <div class="hbar-row">
+      <span>Corretiva emergencial</span>
+      <div class="htrack"><i class="teal" style="width:62%"></i></div>
+      <b>837</b>
+    </div>
+    <div class="hbar-row">
+      <span>Preditiva</span>
+      <div class="htrack"><i class="teal" style="width:43%"></i></div>
+      <b>547</b>
+    </div>
+    <div class="hbar-row">
+      <span>Corretiva programada</span>
+      <div class="htrack"><i class="teal" style="width:25%"></i></div>
+      <b>298</b>
+    </div>
+    <div class="hbar-row">
+      <span>Serviços</span>
+      <div class="htrack"><i class="teal" style="width:14%"></i></div>
+      <b>151</b>
+    </div></div></div><div class="mini-panel "><h4>Equipamentos</h4><div class="bars compact">
+    <div class="hbar-row">
+      <span>Quadro de comando</span>
+      <div class="htrack"><i class="teal" style="width:91%"></i></div>
+      <b>95</b>
+    </div>
+    <div class="hbar-row">
+      <span>Bomba submersa</span>
+      <div class="htrack"><i class="teal" style="width:55%"></i></div>
+      <b>46</b>
+    </div>
+    <div class="hbar-row">
+      <span>Motor elétrico</span>
+      <div class="htrack"><i class="teal" style="width:42%"></i></div>
+      <b>33</b>
+    </div>
+    <div class="hbar-row">
+      <span>Bomba esgoto</span>
+      <div class="htrack"><i class="teal" style="width:31%"></i></div>
+      <b>22</b>
+    </div>
+    <div class="hbar-row">
+      <span>Bomba centrífuga</span>
+      <div class="htrack"><i class="teal" style="width:25%"></i></div>
+      <b>18</b>
+    </div></div></div><div class="mini-panel "><h4>Itens</h4><div class="bars compact">
+    <div class="hbar-row">
+      <span>Motor</span>
+      <div class="htrack"><i class="teal" style="width:91%"></i></div>
+      <b>46</b>
+    </div>
+    <div class="hbar-row">
+      <span>Rotor</span>
+      <div class="htrack"><i class="teal" style="width:55%"></i></div>
+      <b>23</b>
+    </div>
+    <div class="hbar-row">
+      <span>Circuitos comando</span>
+      <div class="htrack"><i class="teal" style="width:52%"></i></div>
+      <b>22</b>
+    </div>
+    <div class="hbar-row">
+      <span>Contatores</span>
+      <div class="htrack"><i class="teal" style="width:45%"></i></div>
+      <b>19</b>
+    </div>
+    <div class="hbar-row">
+      <span>Disjuntor</span>
+      <div class="htrack"><i class="teal" style="width:35%"></i></div>
+      <b>15</b>
+    </div></div></div><div class="mini-panel "><h4>Causas</h4><div class="bars compact">
+    <div class="hbar-row">
+      <span>Causa técnica</span>
+      <div class="htrack"><i class="teal" style="width:91%"></i></div>
+      <b>32</b>
+    </div>
+    <div class="hbar-row">
+      <span>Sobrecarga equipamento</span>
+      <div class="htrack"><i class="teal" style="width:58%"></i></div>
+      <b>17</b>
+    </div>
+    <div class="hbar-row">
+      <span>Sobrecarga corrente</span>
+      <div class="htrack"><i class="teal" style="width:49%"></i></div>
+      <b>14</b>
+    </div>
+    <div class="hbar-row">
+      <span>Falha material</span>
+      <div class="htrack"><i class="teal" style="width:39%"></i></div>
+      <b>11</b>
+    </div>
+    <div class="hbar-row">
+      <span>Fatores externos</span>
+      <div class="htrack"><i class="teal" style="width:39%"></i></div>
+      <b>11</b>
+    </div></div></div><div class="mini-panel "><h4>Medidas</h4><div class="bars compact">
+    <div class="hbar-row">
+      <span>Parar para reparo</span>
+      <div class="htrack"><i class="teal" style="width:93%"></i></div>
+      <b>41</b>
+    </div>
+    <div class="hbar-row">
+      <span>Substituir</span>
+      <div class="htrack"><i class="teal" style="width:70%"></i></div>
+      <b>30</b>
+    </div>
+    <div class="hbar-row">
+      <span>Reset</span>
+      <div class="htrack"><i class="teal" style="width:43%"></i></div>
+      <b>16</b>
+    </div>
+    <div class="hbar-row">
+      <span>Enviar a terceiro</span>
+      <div class="htrack"><i class="teal" style="width:35%"></i></div>
+      <b>13</b>
+    </div>
+    <div class="hbar-row">
+      <span>Ajuste técnico</span>
+      <div class="htrack"><i class="teal" style="width:24%"></i></div>
+      <b>9</b>
+    </div></div></div><div class="mini-panel "><h4>Danos e falhas</h4><div class="bars compact">
+    <div class="hbar-row">
+      <span>Estator queimado</span>
+      <div class="htrack"><i class="teal" style="width:88%"></i></div>
+      <b>27</b>
+    </div>
+    <div class="hbar-row">
+      <span>Motor queimado</span>
+      <div class="htrack"><i class="teal" style="width:84%"></i></div>
+      <b>26</b>
+    </div>
+    <div class="hbar-row">
+      <span>Ponto quente</span>
+      <div class="htrack"><i class="teal" style="width:55%"></i></div>
+      <b>15</b>
+    </div>
+    <div class="hbar-row">
+      <span>Vazamento</span>
+      <div class="htrack"><i class="teal" style="width:51%"></i></div>
+      <b>14</b>
+    </div>
+    <div class="hbar-row">
+      <span>Desenergizado</span>
+      <div class="htrack"><i class="teal" style="width:42%"></i></div>
+      <b>12</b>
+    </div></div></div></div>
+        <div class="mock-footer">
+          <span>Portfólio demonstrativo</span>
+          <span>Portfólio técnico de BI operacional</span>
+          <span>Confidencialidade preservada</span>
+        </div>
+      </div>
+    </article>
+    
+    <article class="screen-card" id="deslocamento-execucao" data-category="Produtividade" data-title="deslocamento & execução" data-keywords="deslocamento & execução comparativo entre tempo em deslocamento e tempo de execução por equipe e regional. produtividade">
+      <div class="screen-head">
+        <div>
+          <span class="screen-kicker">Produtividade</span>
+          <h2>Deslocamento & Execução</h2>
+          <p>Comparativo entre tempo em deslocamento e tempo de execução por equipe e regional.</p>
+          <div class="screen-chips"><mark>Campo</mark><mark>Equipe</mark><mark>Tempo produtivo</mark><mark>Deslocamento</mark></div>
+        </div>
+        <div class="screen-actions">
+          <button class="ghost-btn expand-btn">Modo foco</button>
+        </div>
+      </div>
+      <div class="mock-screen">
+        <div class="mock-top">
+          <div class="mock-brand"><span>LG</span><b>Deslocamento & Execução</b></div>
+          <nav><span class="">Aderência</span><span class="">Executado</span><span class="">Plano</span><span class="">Bad Actors</span><span class="">ICM</span><span class="on">Execução</span><span class="">Horas</span><span class="">Bombas</span><span class="">Componentes</span><span class="">Analítico</span></nav>
+        </div>
+        <div class="mock-filters">
+          <b>Painel de filtros</b>
+          <label>Período <span>Jan/2026 — Mar/2026</span></label>
+          <label>Base <span>Todas</span></label>
+          <label>Município <span>Todos</span></label>
+          <label>Planta <span>Anonimizada</span></label>
+        </div>
+    <div class="mock-grid three"><div class="mini-panel "><h4>Regional A</h4><div class="stack-columns"><div class="stack-col"><b>146h</b><div class="stackbar" style="height:100%"><i style="height:32%"></i><u style="height:68%"></u></div><span>Eq.01</span></div><div class="stack-col"><b>132h</b><div class="stackbar" style="height:90%"><i style="height:32%"></i><u style="height:68%"></u></div><span>Eq.02</span></div><div class="stack-col"><b>119h</b><div class="stackbar" style="height:82%"><i style="height:32%"></i><u style="height:68%"></u></div><span>Eq.03</span></div><div class="stack-col"><b>105h</b><div class="stackbar" style="height:72%"><i style="height:32%"></i><u style="height:68%"></u></div><span>Eq.04</span></div><div class="stack-col"><b>95h</b><div class="stackbar" style="height:95%"><i style="height:32%"></i><u style="height:68%"></u></div><span>Eq.05</span></div><div class="stack-col"><b>81h</b><div class="stackbar" style="height:100%"><i style="height:32%"></i><u style="height:68%"></u></div><span>Eq.06</span></div></div><div class="legend-mini"><span><i></i>Deslocamento</span><span><u></u>Execução</span></div></div><div class="mini-panel "><h4>Regional B</h4><div class="stack-columns"><div class="stack-col"><b>146h</b><div class="stackbar" style="height:100%"><i style="height:32%"></i><u style="height:68%"></u></div><span>Eq.01</span></div><div class="stack-col"><b>132h</b><div class="stackbar" style="height:90%"><i style="height:32%"></i><u style="height:68%"></u></div><span>Eq.02</span></div><div class="stack-col"><b>119h</b><div class="stackbar" style="height:82%"><i style="height:32%"></i><u style="height:68%"></u></div><span>Eq.03</span></div><div class="stack-col"><b>105h</b><div class="stackbar" style="height:72%"><i style="height:32%"></i><u style="height:68%"></u></div><span>Eq.04</span></div><div class="stack-col"><b>95h</b><div class="stackbar" style="height:95%"><i style="height:32%"></i><u style="height:68%"></u></div><span>Eq.05</span></div><div class="stack-col"><b>81h</b><div class="stackbar" style="height:100%"><i style="height:32%"></i><u style="height:68%"></u></div><span>Eq.06</span></div></div><div class="legend-mini"><span><i></i>Deslocamento</span><span><u></u>Execução</span></div></div><div class="mini-panel "><h4>Regional C</h4><div class="stack-columns"><div class="stack-col"><b>146h</b><div class="stackbar" style="height:100%"><i style="height:32%"></i><u style="height:68%"></u></div><span>Eq.01</span></div><div class="stack-col"><b>132h</b><div class="stackbar" style="height:90%"><i style="height:32%"></i><u style="height:68%"></u></div><span>Eq.02</span></div><div class="stack-col"><b>119h</b><div class="stackbar" style="height:82%"><i style="height:32%"></i><u style="height:68%"></u></div><span>Eq.03</span></div><div class="stack-col"><b>105h</b><div class="stackbar" style="height:72%"><i style="height:32%"></i><u style="height:68%"></u></div><span>Eq.04</span></div><div class="stack-col"><b>95h</b><div class="stackbar" style="height:95%"><i style="height:32%"></i><u style="height:68%"></u></div><span>Eq.05</span></div><div class="stack-col"><b>81h</b><div class="stackbar" style="height:100%"><i style="height:32%"></i><u style="height:68%"></u></div><span>Eq.06</span></div></div><div class="legend-mini"><span><i></i>Deslocamento</span><span><u></u>Execução</span></div></div><div class="mini-panel "><h4>Regional D</h4><div class="stack-columns"><div class="stack-col"><b>146h</b><div class="stackbar" style="height:100%"><i style="height:32%"></i><u style="height:68%"></u></div><span>Eq.01</span></div><div class="stack-col"><b>132h</b><div class="stackbar" style="height:90%"><i style="height:32%"></i><u style="height:68%"></u></div><span>Eq.02</span></div><div class="stack-col"><b>119h</b><div class="stackbar" style="height:82%"><i style="height:32%"></i><u style="height:68%"></u></div><span>Eq.03</span></div><div class="stack-col"><b>105h</b><div class="stackbar" style="height:72%"><i style="height:32%"></i><u style="height:68%"></u></div><span>Eq.04</span></div><div class="stack-col"><b>95h</b><div class="stackbar" style="height:95%"><i style="height:32%"></i><u style="height:68%"></u></div><span>Eq.05</span></div><div class="stack-col"><b>81h</b><div class="stackbar" style="height:100%"><i style="height:32%"></i><u style="height:68%"></u></div><span>Eq.06</span></div></div><div class="legend-mini"><span><i></i>Deslocamento</span><span><u></u>Execução</span></div></div><div class="mini-panel "><h4>Regional E</h4><div class="stack-columns"><div class="stack-col"><b>146h</b><div class="stackbar" style="height:100%"><i style="height:32%"></i><u style="height:68%"></u></div><span>Eq.01</span></div><div class="stack-col"><b>132h</b><div class="stackbar" style="height:90%"><i style="height:32%"></i><u style="height:68%"></u></div><span>Eq.02</span></div><div class="stack-col"><b>119h</b><div class="stackbar" style="height:82%"><i style="height:32%"></i><u style="height:68%"></u></div><span>Eq.03</span></div><div class="stack-col"><b>105h</b><div class="stackbar" style="height:72%"><i style="height:32%"></i><u style="height:68%"></u></div><span>Eq.04</span></div><div class="stack-col"><b>95h</b><div class="stackbar" style="height:95%"><i style="height:32%"></i><u style="height:68%"></u></div><span>Eq.05</span></div><div class="stack-col"><b>81h</b><div class="stackbar" style="height:100%"><i style="height:32%"></i><u style="height:68%"></u></div><span>Eq.06</span></div></div><div class="legend-mini"><span><i></i>Deslocamento</span><span><u></u>Execução</span></div></div><div class="mini-panel "><h4>Regional F</h4><div class="stack-columns"><div class="stack-col"><b>146h</b><div class="stackbar" style="height:100%"><i style="height:32%"></i><u style="height:68%"></u></div><span>Eq.01</span></div><div class="stack-col"><b>132h</b><div class="stackbar" style="height:90%"><i style="height:32%"></i><u style="height:68%"></u></div><span>Eq.02</span></div><div class="stack-col"><b>119h</b><div class="stackbar" style="height:82%"><i style="height:32%"></i><u style="height:68%"></u></div><span>Eq.03</span></div><div class="stack-col"><b>105h</b><div class="stackbar" style="height:72%"><i style="height:32%"></i><u style="height:68%"></u></div><span>Eq.04</span></div><div class="stack-col"><b>95h</b><div class="stackbar" style="height:95%"><i style="height:32%"></i><u style="height:68%"></u></div><span>Eq.05</span></div><div class="stack-col"><b>81h</b><div class="stackbar" style="height:100%"><i style="height:32%"></i><u style="height:68%"></u></div><span>Eq.06</span></div></div><div class="legend-mini"><span><i></i>Deslocamento</span><span><u></u>Execução</span></div></div></div>
+        <div class="mock-footer">
+          <span>Portfólio demonstrativo</span>
+          <span>Portfólio técnico de BI operacional</span>
+          <span>Confidencialidade preservada</span>
+        </div>
+      </div>
+    </article>
+    
+    <article class="screen-card" id="horas-trabalhadas" data-category="Produtividade" data-title="horas trabalhadas | analítico" data-keywords="horas trabalhadas | analítico composição de horas por tipo de atividade, equipe e regional. produtividade">
+      <div class="screen-head">
+        <div>
+          <span class="screen-kicker">Produtividade</span>
+          <h2>Horas Trabalhadas | Analítico</h2>
+          <p>Composição de horas por tipo de atividade, equipe e regional.</p>
+          <div class="screen-chips"><mark>Apontamento</mark><mark>Horas</mark><mark>Equipe</mark><mark>Atividade</mark></div>
+        </div>
+        <div class="screen-actions">
+          <button class="ghost-btn expand-btn">Modo foco</button>
+        </div>
+      </div>
+      <div class="mock-screen">
+        <div class="mock-top">
+          <div class="mock-brand"><span>LG</span><b>Horas Trabalhadas | Analítico</b></div>
+          <nav><span class="">Aderência</span><span class="">Executado</span><span class="">Plano</span><span class="">Bad Actors</span><span class="">ICM</span><span class="">Execução</span><span class="on">Horas</span><span class="">Bombas</span><span class="">Componentes</span><span class="">Analítico</span></nav>
+        </div>
+        <div class="mock-filters">
+          <b>Painel de filtros</b>
+          <label>Período <span>Jan/2026 — Mar/2026</span></label>
+          <label>Base <span>Todas</span></label>
+          <label>Município <span>Todos</span></label>
+          <label>Planta <span>Anonimizada</span></label>
+        </div>
+    <div class="mock-grid three"><div class="mini-panel "><h4>Regional A</h4><div class="multi-columns">
+        <div class="multi-col">
+          <b>130h</b>
+          <div class="multi" style="height:100%">
+            <i class="a" style="height:22%"></i>
+            <i class="b" style="height:34%"></i>
+            <i class="c" style="height:20%"></i>
+            <i class="d" style="height:24%"></i>
+          </div>
+          <span>Eq.01</span>
+        </div>
+        <div class="multi-col">
+          <b>124h</b>
+          <div class="multi" style="height:95%">
+            <i class="a" style="height:24%"></i>
+            <i class="b" style="height:33%"></i>
+            <i class="c" style="height:21%"></i>
+            <i class="d" style="height:23%"></i>
+          </div>
+          <span>Eq.02</span>
+        </div>
+        <div class="multi-col">
+          <b>110h</b>
+          <div class="multi" style="height:84%">
+            <i class="a" style="height:26%"></i>
+            <i class="b" style="height:32%"></i>
+            <i class="c" style="height:22%"></i>
+            <i class="d" style="height:22%"></i>
+          </div>
+          <span>Eq.03</span>
+        </div>
+        <div class="multi-col">
+          <b>99h</b>
+          <div class="multi" style="height:100%">
+            <i class="a" style="height:28%"></i>
+            <i class="b" style="height:31%"></i>
+            <i class="c" style="height:23%"></i>
+            <i class="d" style="height:21%"></i>
+          </div>
+          <span>Eq.04</span>
+        </div>
+        <div class="multi-col">
+          <b>91h</b>
+          <div class="multi" style="height:95%">
+            <i class="a" style="height:30%"></i>
+            <i class="b" style="height:30%"></i>
+            <i class="c" style="height:24%"></i>
+            <i class="d" style="height:20%"></i>
+          </div>
+          <span>Eq.05</span>
+        </div>
+        <div class="multi-col">
+          <b>87h</b>
+          <div class="multi" style="height:84%">
+            <i class="a" style="height:32%"></i>
+            <i class="b" style="height:29%"></i>
+            <i class="c" style="height:25%"></i>
+            <i class="d" style="height:19%"></i>
+          </div>
+          <span>Eq.06</span>
+        </div></div></div><div class="mini-panel "><h4>Regional B</h4><div class="multi-columns">
+        <div class="multi-col">
+          <b>130h</b>
+          <div class="multi" style="height:100%">
+            <i class="a" style="height:22%"></i>
+            <i class="b" style="height:34%"></i>
+            <i class="c" style="height:20%"></i>
+            <i class="d" style="height:24%"></i>
+          </div>
+          <span>Eq.01</span>
+        </div>
+        <div class="multi-col">
+          <b>124h</b>
+          <div class="multi" style="height:95%">
+            <i class="a" style="height:24%"></i>
+            <i class="b" style="height:33%"></i>
+            <i class="c" style="height:21%"></i>
+            <i class="d" style="height:23%"></i>
+          </div>
+          <span>Eq.02</span>
+        </div>
+        <div class="multi-col">
+          <b>110h</b>
+          <div class="multi" style="height:84%">
+            <i class="a" style="height:26%"></i>
+            <i class="b" style="height:32%"></i>
+            <i class="c" style="height:22%"></i>
+            <i class="d" style="height:22%"></i>
+          </div>
+          <span>Eq.03</span>
+        </div>
+        <div class="multi-col">
+          <b>99h</b>
+          <div class="multi" style="height:100%">
+            <i class="a" style="height:28%"></i>
+            <i class="b" style="height:31%"></i>
+            <i class="c" style="height:23%"></i>
+            <i class="d" style="height:21%"></i>
+          </div>
+          <span>Eq.04</span>
+        </div>
+        <div class="multi-col">
+          <b>91h</b>
+          <div class="multi" style="height:95%">
+            <i class="a" style="height:30%"></i>
+            <i class="b" style="height:30%"></i>
+            <i class="c" style="height:24%"></i>
+            <i class="d" style="height:20%"></i>
+          </div>
+          <span>Eq.05</span>
+        </div>
+        <div class="multi-col">
+          <b>87h</b>
+          <div class="multi" style="height:84%">
+            <i class="a" style="height:32%"></i>
+            <i class="b" style="height:29%"></i>
+            <i class="c" style="height:25%"></i>
+            <i class="d" style="height:19%"></i>
+          </div>
+          <span>Eq.06</span>
+        </div></div></div><div class="mini-panel "><h4>Regional C</h4><div class="multi-columns">
+        <div class="multi-col">
+          <b>130h</b>
+          <div class="multi" style="height:100%">
+            <i class="a" style="height:22%"></i>
+            <i class="b" style="height:34%"></i>
+            <i class="c" style="height:20%"></i>
+            <i class="d" style="height:24%"></i>
+          </div>
+          <span>Eq.01</span>
+        </div>
+        <div class="multi-col">
+          <b>124h</b>
+          <div class="multi" style="height:95%">
+            <i class="a" style="height:24%"></i>
+            <i class="b" style="height:33%"></i>
+            <i class="c" style="height:21%"></i>
+            <i class="d" style="height:23%"></i>
+          </div>
+          <span>Eq.02</span>
+        </div>
+        <div class="multi-col">
+          <b>110h</b>
+          <div class="multi" style="height:84%">
+            <i class="a" style="height:26%"></i>
+            <i class="b" style="height:32%"></i>
+            <i class="c" style="height:22%"></i>
+            <i class="d" style="height:22%"></i>
+          </div>
+          <span>Eq.03</span>
+        </div>
+        <div class="multi-col">
+          <b>99h</b>
+          <div class="multi" style="height:100%">
+            <i class="a" style="height:28%"></i>
+            <i class="b" style="height:31%"></i>
+            <i class="c" style="height:23%"></i>
+            <i class="d" style="height:21%"></i>
+          </div>
+          <span>Eq.04</span>
+        </div>
+        <div class="multi-col">
+          <b>91h</b>
+          <div class="multi" style="height:95%">
+            <i class="a" style="height:30%"></i>
+            <i class="b" style="height:30%"></i>
+            <i class="c" style="height:24%"></i>
+            <i class="d" style="height:20%"></i>
+          </div>
+          <span>Eq.05</span>
+        </div>
+        <div class="multi-col">
+          <b>87h</b>
+          <div class="multi" style="height:84%">
+            <i class="a" style="height:32%"></i>
+            <i class="b" style="height:29%"></i>
+            <i class="c" style="height:25%"></i>
+            <i class="d" style="height:19%"></i>
+          </div>
+          <span>Eq.06</span>
+        </div></div></div><div class="mini-panel "><h4>Regional D</h4><div class="multi-columns">
+        <div class="multi-col">
+          <b>130h</b>
+          <div class="multi" style="height:100%">
+            <i class="a" style="height:22%"></i>
+            <i class="b" style="height:34%"></i>
+            <i class="c" style="height:20%"></i>
+            <i class="d" style="height:24%"></i>
+          </div>
+          <span>Eq.01</span>
+        </div>
+        <div class="multi-col">
+          <b>124h</b>
+          <div class="multi" style="height:95%">
+            <i class="a" style="height:24%"></i>
+            <i class="b" style="height:33%"></i>
+            <i class="c" style="height:21%"></i>
+            <i class="d" style="height:23%"></i>
+          </div>
+          <span>Eq.02</span>
+        </div>
+        <div class="multi-col">
+          <b>110h</b>
+          <div class="multi" style="height:84%">
+            <i class="a" style="height:26%"></i>
+            <i class="b" style="height:32%"></i>
+            <i class="c" style="height:22%"></i>
+            <i class="d" style="height:22%"></i>
+          </div>
+          <span>Eq.03</span>
+        </div>
+        <div class="multi-col">
+          <b>99h</b>
+          <div class="multi" style="height:100%">
+            <i class="a" style="height:28%"></i>
+            <i class="b" style="height:31%"></i>
+            <i class="c" style="height:23%"></i>
+            <i class="d" style="height:21%"></i>
+          </div>
+          <span>Eq.04</span>
+        </div>
+        <div class="multi-col">
+          <b>91h</b>
+          <div class="multi" style="height:95%">
+            <i class="a" style="height:30%"></i>
+            <i class="b" style="height:30%"></i>
+            <i class="c" style="height:24%"></i>
+            <i class="d" style="height:20%"></i>
+          </div>
+          <span>Eq.05</span>
+        </div>
+        <div class="multi-col">
+          <b>87h</b>
+          <div class="multi" style="height:84%">
+            <i class="a" style="height:32%"></i>
+            <i class="b" style="height:29%"></i>
+            <i class="c" style="height:25%"></i>
+            <i class="d" style="height:19%"></i>
+          </div>
+          <span>Eq.06</span>
+        </div></div></div><div class="mini-panel "><h4>Regional E</h4><div class="multi-columns">
+        <div class="multi-col">
+          <b>130h</b>
+          <div class="multi" style="height:100%">
+            <i class="a" style="height:22%"></i>
+            <i class="b" style="height:34%"></i>
+            <i class="c" style="height:20%"></i>
+            <i class="d" style="height:24%"></i>
+          </div>
+          <span>Eq.01</span>
+        </div>
+        <div class="multi-col">
+          <b>124h</b>
+          <div class="multi" style="height:95%">
+            <i class="a" style="height:24%"></i>
+            <i class="b" style="height:33%"></i>
+            <i class="c" style="height:21%"></i>
+            <i class="d" style="height:23%"></i>
+          </div>
+          <span>Eq.02</span>
+        </div>
+        <div class="multi-col">
+          <b>110h</b>
+          <div class="multi" style="height:84%">
+            <i class="a" style="height:26%"></i>
+            <i class="b" style="height:32%"></i>
+            <i class="c" style="height:22%"></i>
+            <i class="d" style="height:22%"></i>
+          </div>
+          <span>Eq.03</span>
+        </div>
+        <div class="multi-col">
+          <b>99h</b>
+          <div class="multi" style="height:100%">
+            <i class="a" style="height:28%"></i>
+            <i class="b" style="height:31%"></i>
+            <i class="c" style="height:23%"></i>
+            <i class="d" style="height:21%"></i>
+          </div>
+          <span>Eq.04</span>
+        </div>
+        <div class="multi-col">
+          <b>91h</b>
+          <div class="multi" style="height:95%">
+            <i class="a" style="height:30%"></i>
+            <i class="b" style="height:30%"></i>
+            <i class="c" style="height:24%"></i>
+            <i class="d" style="height:20%"></i>
+          </div>
+          <span>Eq.05</span>
+        </div>
+        <div class="multi-col">
+          <b>87h</b>
+          <div class="multi" style="height:84%">
+            <i class="a" style="height:32%"></i>
+            <i class="b" style="height:29%"></i>
+            <i class="c" style="height:25%"></i>
+            <i class="d" style="height:19%"></i>
+          </div>
+          <span>Eq.06</span>
+        </div></div></div><div class="mini-panel "><h4>Regional F</h4><div class="multi-columns">
+        <div class="multi-col">
+          <b>130h</b>
+          <div class="multi" style="height:100%">
+            <i class="a" style="height:22%"></i>
+            <i class="b" style="height:34%"></i>
+            <i class="c" style="height:20%"></i>
+            <i class="d" style="height:24%"></i>
+          </div>
+          <span>Eq.01</span>
+        </div>
+        <div class="multi-col">
+          <b>124h</b>
+          <div class="multi" style="height:95%">
+            <i class="a" style="height:24%"></i>
+            <i class="b" style="height:33%"></i>
+            <i class="c" style="height:21%"></i>
+            <i class="d" style="height:23%"></i>
+          </div>
+          <span>Eq.02</span>
+        </div>
+        <div class="multi-col">
+          <b>110h</b>
+          <div class="multi" style="height:84%">
+            <i class="a" style="height:26%"></i>
+            <i class="b" style="height:32%"></i>
+            <i class="c" style="height:22%"></i>
+            <i class="d" style="height:22%"></i>
+          </div>
+          <span>Eq.03</span>
+        </div>
+        <div class="multi-col">
+          <b>99h</b>
+          <div class="multi" style="height:100%">
+            <i class="a" style="height:28%"></i>
+            <i class="b" style="height:31%"></i>
+            <i class="c" style="height:23%"></i>
+            <i class="d" style="height:21%"></i>
+          </div>
+          <span>Eq.04</span>
+        </div>
+        <div class="multi-col">
+          <b>91h</b>
+          <div class="multi" style="height:95%">
+            <i class="a" style="height:30%"></i>
+            <i class="b" style="height:30%"></i>
+            <i class="c" style="height:24%"></i>
+            <i class="d" style="height:20%"></i>
+          </div>
+          <span>Eq.05</span>
+        </div>
+        <div class="multi-col">
+          <b>87h</b>
+          <div class="multi" style="height:84%">
+            <i class="a" style="height:32%"></i>
+            <i class="b" style="height:29%"></i>
+            <i class="c" style="height:25%"></i>
+            <i class="d" style="height:19%"></i>
+          </div>
+          <span>Eq.06</span>
+        </div></div></div></div>
+        <div class="mock-footer">
+          <span>Portfólio demonstrativo</span>
+          <span>Portfólio técnico de BI operacional</span>
+          <span>Confidencialidade preservada</span>
+        </div>
+      </div>
+    </article>
+    
+    <article class="screen-card" id="bombas-paineis" data-category="Componentes" data-title="bombas e painéis" data-keywords="bombas e painéis controle de substituições e instalações de bombas e painéis por base operacional. componentes">
+      <div class="screen-head">
+        <div>
+          <span class="screen-kicker">Componentes</span>
+          <h2>Bombas e Painéis</h2>
+          <p>Controle de substituições e instalações de bombas e painéis por base operacional.</p>
+          <div class="screen-chips"><mark>Bombas</mark><mark>Painéis</mark><mark>Reservas</mark><mark>Instalações</mark></div>
+        </div>
+        <div class="screen-actions">
+          <button class="ghost-btn expand-btn">Modo foco</button>
+        </div>
+      </div>
+      <div class="mock-screen">
+        <div class="mock-top">
+          <div class="mock-brand"><span>LG</span><b>Bombas e Painéis</b></div>
+          <nav><span class="">Aderência</span><span class="">Executado</span><span class="">Plano</span><span class="">Bad Actors</span><span class="">ICM</span><span class="">Execução</span><span class="">Horas</span><span class="on">Bombas</span><span class="">Componentes</span><span class="">Analítico</span></nav>
+        </div>
+        <div class="mock-filters">
+          <b>Painel de filtros</b>
+          <label>Período <span>Jan/2026 — Mar/2026</span></label>
+          <label>Base <span>Todas</span></label>
+          <label>Município <span>Todos</span></label>
+          <label>Planta <span>Anonimizada</span></label>
+        </div>
+    <div class="mock-kpis four">
+    <div class="mock-kpi" data-metric="Substituições de bomba">
+      <span>Substituições de bomba</span>
+      <strong>116</strong>
+      <small>demanda tratada</small>
+      
+    </div>
+    <div class="mock-kpi" data-metric="Instalações de bomba">
+      <span>Instalações de bomba</span>
+      <strong>23</strong>
+      <small>novas aplicações</small>
+      
+    </div>
+    <div class="mock-kpi" data-metric="Substituição de painel">
+      <span>Substituição de painel</span>
+      <strong>28</strong>
+      <small>controle elétrico</small>
+      
+    </div>
+    <div class="mock-kpi" data-metric="Instalação de painel">
+      <span>Instalação de painel</span>
+      <strong>14</strong>
+      <small>implantação técnica</small>
+      
+    </div></div><div class="mock-grid two"><div class="mini-panel "><h4>Substituições de bomba</h4><table class="mock-table"><thead><tr><th>Ordem</th><th>Texto curto</th><th>Base</th></tr></thead><tbody><tr><td>OS-001</td><td>Substituição de bomba</td><td>Regional A</td></tr><tr><td>OS-002</td><td>Substituição conjunto</td><td>Regional B</td></tr><tr><td>OS-003</td><td>Troca preventiva</td><td>Regional C</td></tr><tr><td>OS-004</td><td>Substituição emergencial</td><td>Regional D</td></tr></tbody></table></div><div class="mini-panel "><h4>Instalações de bomba</h4><table class="mock-table"><thead><tr><th>Ordem</th><th>Texto curto</th><th>Base</th></tr></thead><tbody><tr><td>OS-011</td><td>Instalação de bomba</td><td>Regional A</td></tr><tr><td>OS-012</td><td>Instalação captação</td><td>Regional B</td></tr><tr><td>OS-013</td><td>Instalação booster</td><td>Regional C</td></tr><tr><td>OS-014</td><td>Instalação reserva</td><td>Regional D</td></tr></tbody></table></div><div class="mini-panel "><h4>Substituições por base</h4><div class="columns small">
+    <div class="bar-col">
+      <b>35</b>
+      <i class="" style="height:88%"></i>
+      <span>A</span>
+    </div>
+    <div class="bar-col">
+      <b>21</b>
+      <i class="" style="height:56%"></i>
+      <span>B</span>
+    </div>
+    <div class="bar-col">
+      <b>20</b>
+      <i class="" style="height:53%"></i>
+      <span>C</span>
+    </div>
+    <div class="bar-col">
+      <b>19</b>
+      <i class="" style="height:50%"></i>
+      <span>D</span>
+    </div>
+    <div class="bar-col">
+      <b>12</b>
+      <i class="" style="height:34%"></i>
+      <span>E</span>
+    </div>
+    <div class="bar-col">
+      <b>6</b>
+      <i class="" style="height:18%"></i>
+      <span>F</span>
+    </div></div></div><div class="mini-panel "><h4>Instalações por base</h4><div class="columns small">
+    <div class="bar-col">
+      <b>7</b>
+      <i class="teal" style="height:88%"></i>
+      <span>A</span>
+    </div>
+    <div class="bar-col">
+      <b>4</b>
+      <i class="teal" style="height:100%"></i>
+      <span>B</span>
+    </div>
+    <div class="bar-col">
+      <b>3</b>
+      <i class="teal" style="height:43%"></i>
+      <span>C</span>
+    </div>
+    <div class="bar-col">
+      <b>2</b>
+      <i class="teal" style="height:30%"></i>
+      <span>D</span>
+    </div></div></div></div>
+        <div class="mock-footer">
+          <span>Portfólio demonstrativo</span>
+          <span>Portfólio técnico de BI operacional</span>
+          <span>Confidencialidade preservada</span>
+        </div>
+      </div>
+    </article>
+    
+    <article class="screen-card" id="componentes-eletricos" data-category="Componentes" data-title="soft-starter, inversor, boia e timer" data-keywords="soft-starter, inversor, boia e timer controle analítico de componentes elétricos e dispositivos de automação de campo. componentes">
+      <div class="screen-head">
+        <div>
+          <span class="screen-kicker">Componentes</span>
+          <h2>Soft-starter, Inversor, Boia e Timer</h2>
+          <p>Controle analítico de componentes elétricos e dispositivos de automação de campo.</p>
+          <div class="screen-chips"><mark>Soft-starter</mark><mark>Inversor</mark><mark>Boia</mark><mark>Timer</mark></div>
+        </div>
+        <div class="screen-actions">
+          <button class="ghost-btn expand-btn">Modo foco</button>
+        </div>
+      </div>
+      <div class="mock-screen">
+        <div class="mock-top">
+          <div class="mock-brand"><span>LG</span><b>Soft-starter, Inversor, Boia e Timer</b></div>
+          <nav><span class="">Aderência</span><span class="">Executado</span><span class="">Plano</span><span class="">Bad Actors</span><span class="">ICM</span><span class="">Execução</span><span class="">Horas</span><span class="">Bombas</span><span class="on">Componentes</span><span class="">Analítico</span></nav>
+        </div>
+        <div class="mock-filters">
+          <b>Painel de filtros</b>
+          <label>Período <span>Jan/2026 — Mar/2026</span></label>
+          <label>Base <span>Todas</span></label>
+          <label>Município <span>Todos</span></label>
+          <label>Planta <span>Anonimizada</span></label>
+        </div>
+    <div class="mock-kpis four">
+    <div class="mock-kpi" data-metric="Instalação de soft-starter">
+      <span>Instalação de soft-starter</span>
+      <strong>69</strong>
+      <small>acionamento</small>
+      
+    </div>
+    <div class="mock-kpi" data-metric="Instalações de boia">
+      <span>Instalações de boia</span>
+      <strong>125</strong>
+      <small>controle de nível</small>
+      
+    </div>
+    <div class="mock-kpi" data-metric="Instalação de inversor">
+      <span>Instalação de inversor</span>
+      <strong>22</strong>
+      <small>variação de frequência</small>
+      
+    </div>
+    <div class="mock-kpi" data-metric="Instalação de timer">
+      <span>Instalação de timer</span>
+      <strong>170</strong>
+      <small>automação simples</small>
+      
+    </div></div><div class="mock-grid two"><div class="mini-panel "><h4>Soft-starter por base</h4><div class="columns small">
+    <div class="bar-col">
+      <b>16</b>
+      <i class="" style="height:82%"></i>
+      <span>A</span>
+    </div>
+    <div class="bar-col">
+      <b>15</b>
+      <i class="" style="height:76%"></i>
+      <span>B</span>
+    </div>
+    <div class="bar-col">
+      <b>11</b>
+      <i class="" style="height:58%"></i>
+      <span>C</span>
+    </div>
+    <div class="bar-col">
+      <b>9</b>
+      <i class="" style="height:46%"></i>
+      <span>D</span>
+    </div>
+    <div class="bar-col">
+      <b>5</b>
+      <i class="" style="height:29%"></i>
+      <span>E</span>
+    </div>
+    <div class="bar-col">
+      <b>2</b>
+      <i class="" style="height:13%"></i>
+      <span>F</span>
+    </div></div></div><div class="mini-panel "><h4>Boias por base</h4><div class="columns small">
+    <div class="bar-col">
+      <b>39</b>
+      <i class="teal" style="height:94%"></i>
+      <span>A</span>
+    </div>
+    <div class="bar-col">
+      <b>30</b>
+      <i class="teal" style="height:76%"></i>
+      <span>B</span>
+    </div>
+    <div class="bar-col">
+      <b>21</b>
+      <i class="teal" style="height:58%"></i>
+      <span>C</span>
+    </div>
+    <div class="bar-col">
+      <b>16</b>
+      <i class="teal" style="height:46%"></i>
+      <span>D</span>
+    </div>
+    <div class="bar-col">
+      <b>10</b>
+      <i class="teal" style="height:31%"></i>
+      <span>E</span>
+    </div>
+    <div class="bar-col">
+      <b>4</b>
+      <i class="teal" style="height:14%"></i>
+      <span>F</span>
+    </div></div></div><div class="mini-panel "><h4>Inversores por base</h4><div class="bars">
+    <div class="hbar-row">
+      <span>Regional A</span>
+      <div class="htrack"><i class="purple" style="width:90%"></i></div>
+      <b>7</b>
+    </div>
+    <div class="hbar-row">
+      <span>Regional B</span>
+      <div class="htrack"><i class="purple" style="width:42%"></i></div>
+      <b>3</b>
+    </div>
+    <div class="hbar-row">
+      <span>Regional C</span>
+      <div class="htrack"><i class="purple" style="width:42%"></i></div>
+      <b>3</b>
+    </div>
+    <div class="hbar-row">
+      <span>Regional D</span>
+      <div class="htrack"><i class="purple" style="width:30%"></i></div>
+      <b>2</b>
+    </div>
+    <div class="hbar-row">
+      <span>Regional E</span>
+      <div class="htrack"><i class="purple" style="width:18%"></i></div>
+      <b>1</b>
+    </div></div></div><div class="mini-panel "><h4>Timers por base</h4><div class="bars">
+    <div class="hbar-row">
+      <span>Regional A</span>
+      <div class="htrack"><i class="orange" style="width:92%"></i></div>
+      <b>73</b>
+    </div>
+    <div class="hbar-row">
+      <span>Regional B</span>
+      <div class="htrack"><i class="orange" style="width:63%"></i></div>
+      <b>46</b>
+    </div>
+    <div class="hbar-row">
+      <span>Regional C</span>
+      <div class="htrack"><i class="orange" style="width:22%"></i></div>
+      <b>12</b>
+    </div>
+    <div class="hbar-row">
+      <span>Regional D</span>
+      <div class="htrack"><i class="orange" style="width:20%"></i></div>
+      <b>11</b>
+    </div>
+    <div class="hbar-row">
+      <span>Regional E</span>
+      <div class="htrack"><i class="orange" style="width:14%"></i></div>
+      <b>7</b>
+    </div></div></div></div>
+        <div class="mock-footer">
+          <span>Portfólio demonstrativo</span>
+          <span>Portfólio técnico de BI operacional</span>
+          <span>Confidencialidade preservada</span>
+        </div>
+      </div>
+    </article>
+    
+    <article class="screen-card" id="visao-analitica" data-category="Analítico" data-title="visão analítica" data-keywords="visão analítica detalhamento de ordens, apontamentos, itens, causas e medidas para auditoria operacional. analítico">
+      <div class="screen-head">
+        <div>
+          <span class="screen-kicker">Analítico</span>
+          <h2>Visão Analítica</h2>
+          <p>Detalhamento de ordens, apontamentos, itens, causas e medidas para auditoria operacional.</p>
+          <div class="screen-chips"><mark>Auditoria</mark><mark>Ordens</mark><mark>Apontamentos</mark><mark>Rastreabilidade</mark></div>
+        </div>
+        <div class="screen-actions">
+          <button class="ghost-btn expand-btn">Modo foco</button>
+        </div>
+      </div>
+      <div class="mock-screen">
+        <div class="mock-top">
+          <div class="mock-brand"><span>LG</span><b>Visão Analítica</b></div>
+          <nav><span class="">Aderência</span><span class="">Executado</span><span class="">Plano</span><span class="">Bad Actors</span><span class="">ICM</span><span class="">Execução</span><span class="">Horas</span><span class="">Bombas</span><span class="">Componentes</span><span class="on">Analítico</span></nav>
+        </div>
+        <div class="mock-filters">
+          <b>Painel de filtros</b>
+          <label>Período <span>Jan/2026 — Mar/2026</span></label>
+          <label>Base <span>Todas</span></label>
+          <label>Município <span>Todos</span></label>
+          <label>Planta <span>Anonimizada</span></label>
+        </div>
+    <div class="mock-grid one"><div class="mini-panel table-panel"><h4>Ordens gerais - analítico</h4><table class="mock-table"><thead><tr><th>Data</th><th>Texto breve</th><th>Equipamento</th><th>Base</th></tr></thead><tbody><tr><td>2026-01</td><td>Ordem operacional anonimizada</td><td>Equipamento A</td><td>Regional A</td></tr><tr><td>2026-01</td><td>Ordem preventiva anonimizada</td><td>Equipamento B</td><td>Regional B</td></tr><tr><td>2026-02</td><td>Ordem corretiva anonimizada</td><td>Equipamento C</td><td>Regional C</td></tr><tr><td>2026-02</td><td>Ordem de inspeção anonimizada</td><td>Equipamento D</td><td>Regional D</td></tr></tbody></table></div><div class="mini-panel table-panel"><h4>Apontamentos de horas - analítico</h4><table class="mock-table"><thead><tr><th>Ordem</th><th>Operação</th><th>Status</th><th>Horas</th></tr></thead><tbody><tr><td>OS-001</td><td>Execução técnica</td><td>Trabalhando</td><td>2,40h</td></tr><tr><td>OS-002</td><td>Deslocamento</td><td>Concluído</td><td>0,80h</td></tr><tr><td>OS-003</td><td>Inspeção</td><td>Trabalhando</td><td>1,25h</td></tr><tr><td>OS-004</td><td>Manutenção corretiva</td><td>Concluído</td><td>3,10h</td></tr></tbody></table></div><div class="mini-panel table-panel"><h4>Itens, causas e medidas - analítico</h4><table class="mock-table"><thead><tr><th>Tipo</th><th>Item</th><th>Causa</th><th>Medida</th></tr></thead><tbody><tr><td>Corretiva</td><td>Motor</td><td>Sobrecarga</td><td>Substituição</td></tr><tr><td>Preventiva</td><td>Painel</td><td>Inspeção</td><td>Ajuste técnico</td></tr><tr><td>Emergencial</td><td>Comando</td><td>Falha elétrica</td><td>Reparo imediato</td></tr><tr><td>Programada</td><td>Bomba</td><td>Vazamento</td><td>Envio para reparo</td></tr></tbody></table></div></div>
+        <div class="mock-footer">
+          <span>Portfólio demonstrativo</span>
+          <span>Portfólio técnico de BI operacional</span>
+          <span>Confidencialidade preservada</span>
+        </div>
+      </div>
+    </article>
+    
+
+      <footer>
+        <div><b>Luiz Gonzaga de Farias Neto</b><br />Data Analytics | Power BI | Engenharia & Processos</div>
+        <div>Teresina, PI<br />+55 (86) 99803-5364 • luizgonzntx@gmail.com • linkedin.com/in/luizgonzntx</div>
+      </footer>
+    </main>
+  </div>
+
+  <div class="modal" id="modal">
+    <div class="modal-body">
+      <div class="modal-top"><b id="modalTitle">Modo foco</b><button class="modal-close" id="modalClose">Fechar</button></div>
+      <div class="modal-content" id="modalContent"></div>
+    </div>
+  </div>
+
+  <script>
+    const root = document.documentElement;
+    const cards = [...document.querySelectorAll('.screen-card')];
+    const searchInput = document.getElementById('searchInput');
+    const filterButtons = [...document.querySelectorAll('.filter-btn')];
+    const modal = document.getElementById('modal');
+    const modalContent = document.getElementById('modalContent');
+    const modalTitle = document.getElementById('modalTitle');
+    let currentFilter = 'all';
+
+    function normalize(text) {
+      return (text || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+    }
+
+    function applyFilters() {
+      const term = normalize(searchInput.value);
+      cards.forEach(card => {
+        const category = card.dataset.category;
+        const haystack = normalize(card.dataset.keywords + ' ' + card.innerText);
+        const categoryOk = currentFilter === 'all' || category === currentFilter;
+        const searchOk = !term || haystack.includes(term);
+        card.classList.toggle('hidden', !(categoryOk && searchOk));
+      });
+    }
+
+    filterButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentFilter = btn.dataset.filter;
+        applyFilters();
+      });
+    });
+
+    searchInput.addEventListener('input', applyFilters);
+
+    const themeBtn = document.getElementById('themeBtn');
+    themeBtn.addEventListener('click', () => {
+      root.classList.toggle('light');
+      themeBtn.textContent = root.classList.contains('light') ? 'Tema escuro' : 'Tema claro';
+    });
+
+    document.querySelectorAll('.expand-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const card = btn.closest('.screen-card');
+        modalTitle.textContent = 'Modo foco • ' + card.querySelector('h2').textContent;
+        const clone = card.cloneNode(true);
+        clone.querySelectorAll('.screen-actions').forEach(e => e.remove());
+        modalContent.innerHTML = '';
+        modalContent.appendChild(clone);
+        modal.classList.add('open');
+      });
+    });
+
+    document.getElementById('modalClose').addEventListener('click', () => modal.classList.remove('open'));
+    modal.addEventListener('click', e => { if (e.target === modal) modal.classList.remove('open'); });
+
+    document.querySelectorAll('.copy-btn').forEach(btn => {
+      btn.addEventListener('click', async () => {
+        try {
+          await navigator.clipboard.writeText(btn.dataset.copy);
+          toast.classList.add('show');
+          setTimeout(() => toast.classList.remove('show'), 1800);
+        } catch (err) {
+          alert(btn.dataset.copy);
+        }
+      });
+    });
+
+    window.addEventListener('scroll', () => {
+      const max = document.documentElement.scrollHeight - innerHeight;
+      const pct = max > 0 ? (scrollY / max) * 100 : 0;
+      document.getElementById('progress').style.width = pct + '%';
+    });
+
+    const cursorDot = document.getElementById('cursorDot');
+    const cursorRing = document.getElementById('cursorRing');
+
+    if (window.matchMedia('(pointer: fine)').matches) {
+      document.body.classList.add('cursor-on');
+      window.addEventListener('mousemove', (event) => {
+        cursorDot.style.left = event.clientX + 'px';
+        cursorDot.style.top = event.clientY + 'px';
+        cursorRing.style.left = event.clientX + 'px';
+        cursorRing.style.top = event.clientY + 'px';
+      });
+
+      document.querySelectorAll('a, button, input, .screen-card, .mock-kpi, .mini-panel').forEach((el) => {
+        el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
+        el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
+      });
+    }
+
+  </script>
+</body>
+</html>
